@@ -1,9 +1,36 @@
+.app-timetable{
+    padding: 30px 10px;
+}
+
 .table-content{
     width:70%;
     margin: 40px auto;
     background-color: red;
 }
 
-.mat-mdc-header-cell{
+.mat-mdc-header-row{
+    background-color: rgb(75, 75, 172);
     font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
 }
+
+.mat-mdc-row{
+    color: rgba(0, 0, 0, 0.5);
+    transition: color 0.1s ease-out;
+}
+.mat-mdc-row:hover{
+    color: rgba(0, 0, 0, 1);
+    background-color:rgba(0, 0, 0, 0.3)
+}
+
+.mat-column-Subject,.mat-column-Date{
+    font-weight: 500;
+}
+
+th,td{
+    text-align: center;
+    background-color: rgb(237, 237, 237);
+    font-family: 'Poppins',sans-serif;
+}
+

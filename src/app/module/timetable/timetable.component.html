@@ -1,8 +1,8 @@
 <section class="app-timetable">
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end" dynamicHeight>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end" dynamicHeight>
         <mat-tab *ngFor="let Table of TableDataFromAPI" label="{{Table.header}}">
             <div class="table-content">
-                <table mat-table [dataSource]="Table.data">
+                <table mat-table class="fot" [dataSource]="Table.data">
 
                     <!-- Index Column -->
                     <ng-container matColumnDef="Index">
@@ -39,7 +39,7 @@
                 </table>
             </div>
         </mat-tab>
-      
+
         <mat-tab label="Add Exam Table"> Content 3 </mat-tab>
     </mat-tab-group>
 </section>
