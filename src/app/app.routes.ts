@@ -7,13 +7,14 @@ import { AppRoute } from './class/app-route';
 
 export const routes: Routes = [
     {
-        canActivate: [AuthGuard,RoleGuard], data: { role: [Users.Student, Users.Admin, Users.Faculty, Users.Parents] },
+        canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Student, Users.Admin, Users.Faculty, Users.Parents] },
         path: '',
         component: ContainerComponent
     },
     {
-        canActivate: [AuthGuard,RoleGuard], data: { role: [Users.Student, Users.Admin, Users.Faculty, Users.Parents] },
-        path: AppRoute.TimeTable,
-        loadChildren: () => import('./module/timetable/timetable.module').then(m=>m.TimetableModule)
+        canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Student] },
+        path: '',
+        component: ContainerComponent,
+        loadChildren: () => import("./module/student.module").then(m => m.StudentModule)
     }
 ];

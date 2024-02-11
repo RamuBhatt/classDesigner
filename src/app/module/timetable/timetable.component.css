@@ -1,0 +1,9 @@
+.table-content{
+    width:70%;
+    margin: 40px auto;
+    background-color: red;
+}
+
+.mat-mdc-header-cell{
+    font-weight: 600;
+}
