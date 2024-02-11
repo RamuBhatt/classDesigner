@@ -12,19 +12,3 @@ export interface School extends BaseEntities {
     Faculty: Faculty[];
     Parents: Parents[];
 }
-
-/**
- * Name: "",
-    Email: "",
-    Phone: 0,
-    Address: "",
-    Students: [],
-    Faculty: [],
-    Parents: [],
-    Id: 0,
-    isActive: false,
-    CreatedOn: undefined,
-    CreatedBy: 0,
-    UpdatedOn: undefined,
-    UpdatedBy: 0
- */

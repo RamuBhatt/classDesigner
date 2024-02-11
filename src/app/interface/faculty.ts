@@ -1,8 +1,9 @@
+import { Medium } from "../enums/medium";
 import { User } from "./user";
 
 export interface Faculty extends User{
     Subject: string;
-    Standerd: number;
-    Medium: 'English';
+    Standard: number;
+    Medium: Medium;
     JoiningDate: Date;
 }

@@ -1,11 +1,12 @@
+import { Medium } from "../enums/medium";
 import { Parents } from "./parents";
 import { User } from "./user";
 
 export interface Student extends User{
     RollNumber: number;
-    Standerd: number;
+    Standard: number;
     Division: string;
-    Medium: 'English';
+    Medium: Medium;
     Address: string;
     Parents: Parents[];
 }
