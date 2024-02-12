@@ -12,7 +12,7 @@ export const routes: Routes = [
         component: ContainerComponent
     },
     {
-        canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Student] },
+        canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Student,Users.Admin] },
         path: '',
         component: ContainerComponent,
         loadChildren: () => import("./module/student.module").then(m => m.StudentModule)
