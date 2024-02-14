@@ -8,14 +8,13 @@ import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
-    canActivate: [RoleGuard], data: { role: [Users.Admin, Users.Faculty] },
-    path: AppRoute.TimeTable,
-    loadChildren: () => import('../module/timetable/timetable.module').then(m => m.TimetableModule)
-  },
-  {
-    canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Admin, Users.Faculty] },
     path: AppRoute.Dashboard,
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    // canActivate: [RoleGuard], data: { role: [Users.Admin, Users.Faculty] },
+    path: AppRoute.TimeTable,
+    loadChildren: () => import('../module/timetable/timetable.module').then(m => m.TimetableModule)
   },
 ]
 

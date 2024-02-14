@@ -13,6 +13,6 @@ export class UserService {
   }
 
   getRole():number {
-    return Users.Admin;
+    return Users.Student;
   }
 }

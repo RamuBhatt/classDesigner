@@ -7,9 +7,10 @@ import { Users } from '../enums/users';
 export const RoleGuard: CanActivateFn = (route, state) => {
   let user = inject(UserService);
   let router = inject(Router);
-  let acceptedRoles:number[] = route.data['role']
+  let acceptedRoles: number[] = route.data['role'];
+  let userRole: number = user.getRole();
   
-  let isAcceptable = acceptedRoles.includes(user.getRole())
+  let isAcceptable = acceptedRoles.includes(userRole);
   
   if (isAcceptable) return true;
   else {

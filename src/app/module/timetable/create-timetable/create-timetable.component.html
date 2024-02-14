@@ -1,1 +1,24 @@
-<p>create-timetable works!</p>
+<form id="timetable-form" name="create-timetable" (ngSubmit)="Submit()" [formGroup]="timetable.form">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Exam Name</mat-label>
+        <input matInput placeholder="eg. Mid Terms" formControlName="Exam">
+    </mat-form-field>
+
+    <mat-form-field  appearance="outline">
+        <mat-label for="Date">Exam Date</mat-label>
+        <input matInput [matDatepicker]="Date" formControlName="Date">
+        <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+        <mat-datepicker #Date></mat-datepicker>
+        
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Subject</mat-label>
+        <input matInput placeholder="eg. Maths" formControlName="Subject">
+    </mat-form-field>
+
+    <mat-slide-toggle [checked]="timetable.form.controls['isActive'].value" formControlName="isActive">Active</mat-slide-toggle>
+
+    <button type="submit"><span>Add</span></button>
+</form>
