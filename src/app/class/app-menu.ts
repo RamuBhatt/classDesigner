@@ -1,7 +1,7 @@
 import { Users } from "../enums/users";
 import { AppRoute } from "./app-route";
 
-const App = [
+export const App = [
     {
         menu: AppRoute.Dashboard,
         url: AppRoute.getRoute(AppRoute.Dashboard),
