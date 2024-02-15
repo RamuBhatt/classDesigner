@@ -4,8 +4,10 @@
 }
 
 .table-content{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width:70%;
-    margin: 40px auto;
+    margin-top: 20px;
+    /* margin: 40px auto; */
     background-color: red;
 }
 
@@ -31,7 +33,7 @@
 
 th,td{
     text-align: center;
-    background-color: rgb(237, 237, 237);
+    background-color: rgb(255, 255, 255);
     font-family: 'Poppins',sans-serif;
 }
 

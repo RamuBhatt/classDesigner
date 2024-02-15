@@ -7,6 +7,7 @@ import { RoleGuard } from '../../guards/role.guard';
 import { Users } from '../../enums/users';
 import { CreateTimetableComponent } from './create-timetable/create-timetable.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Material
 import { MatTabsModule } from '@angular/material/tabs';
@@ -17,6 +18,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 const routes: Routes = [
   {
@@ -37,6 +40,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     MatTabsModule,
@@ -45,7 +49,8 @@ const routes: Routes = [
     MatInputModule,
     MatCardModule,
     MatDatepickerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatAutocompleteModule,
   ],
   providers: [provideNativeDateAdapter()]
 })

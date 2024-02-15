@@ -1,7 +1,7 @@
 <div class="app-sidebar">
     <ul>
         <li *ngFor="let app of App">
-            <button class="cta active" (click)="navigateTo(app.url)">
+            <button class="cta" [class.active]="false" (click)="navigateTo(app.url)">
                 <span>{{app.menu}}</span>
                 <svg width="15px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>

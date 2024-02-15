@@ -14,6 +14,8 @@ export class Timetable extends BaseClass {
     Exam!: string;
     Date!: Date;
     Subject!: string;
+    TimeFrom!: number;
+    TimeTo!: number;
     public form!: FormGroup;
 
     constructor(private formBuilder: FormBuilder) { super(); }
@@ -28,6 +30,8 @@ export class Timetable extends BaseClass {
             Exam: new FormControl(''),
             Date: new FormControl(''),
             Subject: new FormControl(''),
+            TimeFrom: new FormControl(''),
+            TimeTo: new FormControl(''),
             isActive: new FormControl(false)
         }
     }
@@ -38,6 +42,8 @@ export class Timetable extends BaseClass {
         this.Date = data.Date;
         this.Subject = data.Subject;
         this.isActive = data.isActive;
+        this.TimeFrom = data.TimeFrom;
+        this.TimeTo = data.TimeTo;
         this.form.patchValue(this);
     }
 }

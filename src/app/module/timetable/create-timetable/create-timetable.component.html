@@ -1,8 +1,17 @@
 <form id="timetable-form" name="create-timetable" (ngSubmit)="Submit()" [formGroup]="timetable.form">
 
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
         <mat-label>Exam Name</mat-label>
         <input matInput placeholder="eg. Mid Terms" formControlName="Exam">
+    </mat-form-field> -->
+
+    <mat-form-field class="example-full-width" appearance="outline"> 
+        <mat-label>Exam Name</mat-label>
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="Exam"
+            [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of TableList;" [value]="option">{{option}}</mat-option>
+        </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field  appearance="outline">
@@ -16,6 +25,16 @@
     <mat-form-field appearance="outline">
         <mat-label>Subject</mat-label>
         <input matInput placeholder="eg. Maths" formControlName="Subject">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Time Start</mat-label>
+        <input matInput placeholder="eg. 9" formControlName="TimeFrom">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Time End</mat-label>
+        <input matInput placeholder="eg. 11" formControlName="TimeTo">
     </mat-form-field>
 
     <mat-slide-toggle [checked]="timetable.form.controls['isActive'].value" formControlName="isActive">Active</mat-slide-toggle>

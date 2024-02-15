@@ -5,6 +5,8 @@ import { AppRoute } from '../class/app-route';
 import { Users } from '../enums/users';
 import { RoleGuard } from '../guards/role.guard';
 import { AuthGuard } from '../guards/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
+import { TimetableService } from './timetable/timetable.service';
 
 const routes: Routes = [
   {
@@ -20,9 +22,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
+  providers:[TimetableService],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
   ]
 })
 export class BasicModule { }
