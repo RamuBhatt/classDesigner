@@ -1,7 +1,7 @@
 <div class="app-sidebar">
     <ul>
         <li *ngFor="let app of App">
-            <button class="cta" [class.active]="false" (click)="navigateTo(app.url)">
+            <button class="cta" [class.active]="app.isActive" (click)="navigateTo(app)">
                 <span>{{app.menu}}</span>
                 <svg width="15px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
@@ -9,7 +9,7 @@
                 </svg>
             </button>
             <ul>
-                <li *ngFor="let subApp of (app.children)">
+                <li *ngFor="let subApp of (app.children)" (click)="navigateTo(subApp.url)">
                     <button class="cta">
                         <span>{{subApp.menu}}</span>
                         <svg width="15px" height="10px" viewBox="0 0 13 10">
@@ -21,6 +21,4 @@
             </ul>
         </li>
     </ul>
-
-
 </div>

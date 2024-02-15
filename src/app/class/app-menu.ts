@@ -5,11 +5,13 @@ export const App = [
     {
         menu: AppRoute.Dashboard,
         url: AppRoute.getRoute(AppRoute.Dashboard),
+        isActive: true,
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student]
     },
     {
         menu: AppRoute.TimeTable,
         url: AppRoute.getRoute(AppRoute.TimeTable),
+        isActive: false,
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         children: [{
             menu: AppRoute.Add,
@@ -21,6 +23,7 @@ export const App = [
         menu: AppRoute.Attandance,
         url: AppRoute.getRoute(AppRoute.Attandance),
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
+        isActive: false,
         children: [{
             menu: AppRoute.Add,
             url: AppRoute.getRoute(AppRoute.Attandance, AppRoute.Add),

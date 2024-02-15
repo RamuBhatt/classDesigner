@@ -5,14 +5,15 @@ form {
   padding: 20px 10px;
 }
 button {
-  color: #090909;
+  color: #ffffff;
+  font-weight: 500;
   padding: 0.7em 1.7em;
   font-size: 18px;
   width: 100px;
   margin-top: 10px;
   border-radius: 0.5em;
   border: 1px solid rgba(0, 0, 0, 0.7);
-  /* background: #ffffff; */
+  background: rgb(75, 75, 172);
   cursor: pointer;
   border: 1px solid #e8e8e8;
   transition: all 0.3s;

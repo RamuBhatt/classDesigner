@@ -1,9 +1,16 @@
 .app-sidebar {
   margin-right: 20px;
 }
+ul{
+  padding: 0;
+}
 
 li {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+li > ul{
+  margin-top: 5px !important;
+  margin-left: 20px;
 }
 
 .cta {
@@ -76,5 +83,5 @@ background-color: white;
 
 .active:before{
     width: 100%;
-    background-color: white;
+    background-color: #b1dae7;
 }

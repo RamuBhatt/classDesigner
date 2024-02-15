@@ -22,7 +22,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  providers:[TimetableService],
+  providers: [TimetableService],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
