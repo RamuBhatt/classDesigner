@@ -20,13 +20,13 @@ export const App = [
         }]
     },
     {
-        menu: AppRoute.Attandance,
-        url: AppRoute.getRoute(AppRoute.Attandance),
+        menu: AppRoute.Attendance,
+        url: AppRoute.getRoute(AppRoute.Attendance),
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         isActive: false,
         children: [{
             menu: AppRoute.Add,
-            url: AppRoute.getRoute(AppRoute.Attandance, AppRoute.Add),
+            url: AppRoute.getRoute(AppRoute.Attendance, AppRoute.Add),
             roles: [Users.Admin, Users.Faculty]
         }]
     }

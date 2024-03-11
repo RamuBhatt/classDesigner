@@ -18,6 +18,10 @@ const routes: Routes = [
     path: AppRoute.TimeTable,
     loadChildren: () => import('../module/timetable/timetable.module').then(m => m.TimetableModule)
   },
+  {
+    path: AppRoute.Attendance,
+    loadChildren: () => import('./attendance/attendance.module').then(m => m.AttendanceModule)
+  },
 ]
 
 @NgModule({

@@ -7,7 +7,9 @@ ul{
 
 li {
   margin-top: 10px;
+  transition: all 0.4s ease-in-out;
 }
+
 li > ul{
   margin-top: 5px !important;
   margin-left: 20px;
@@ -60,11 +62,6 @@ li > ul{
   transition: all 0.3s ease;
 }
 
-.cta:hover:before {
-  width: 100%;
-  opacity: 1;
-  background: #b1dae7;
-}
 .active:before {
     opacity: 1;
   width: 100%;
