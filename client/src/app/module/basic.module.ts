@@ -23,6 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./attendance/attendance.module').then(m => m.AttendanceModule)
   },
   { path: AppRoute.Profile, loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'standard', loadChildren: () => import('./standard/standard.module').then(m => m.StandardModule) },
 ]
 
 @NgModule({

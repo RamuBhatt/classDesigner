@@ -1,6 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Poppins', sans-serif; }
-* { margin: 0; font-family: 'Poppins', sans-serif; }
-ul,li{list-style: none;}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+ul,
+li {
+  list-style: none;
+}
+
+/* global component css */
+.primery-btn {
+  all: unset;
+  padding: 10px 16px;
+  height: fit-content;
+  background-color: #b1dae7;
+  color: #234567;
+  font-weight: 700;
+  border-radius: 22px;
+  transition: all 0.2s ease;
+}
+.primery-btn:hover {
+  cursor: pointer;
+}
+.primery-btn:active {
+  transform: scale(0.95);
+}
+
+.bg-s{
+    background-color: transparent;
+}
