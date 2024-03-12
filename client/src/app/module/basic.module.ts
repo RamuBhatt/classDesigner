@@ -22,6 +22,7 @@ const routes: Routes = [
     path: AppRoute.Attendance,
     loadChildren: () => import('./attendance/attendance.module').then(m => m.AttendanceModule)
   },
+  { path: AppRoute.Profile, loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
 ]
 
 @NgModule({

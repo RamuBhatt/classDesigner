@@ -10,16 +10,24 @@
 }
 .page-body{
     padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .box{
     padding: 1rem 1.5rem;
-    border-radius: 1.1rem;
     width: fit-content;
+    border-radius: 1.1rem;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     background-color: white;
 }
+
 .box-title{
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.states{
+    flex-grow: 1;
 }
