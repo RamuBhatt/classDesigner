@@ -3,6 +3,7 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const mysql = require('mysql2');
+const jwt = require('jsonwebtoken');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -22,6 +23,7 @@ const Result = {
     Status:null
 }
 
+
 app.get("/api/school", (req, res) => {
 
     const sqlget = "SELECT * FROM school";
@@ -33,14 +35,28 @@ app.get("/api/school", (req, res) => {
         let Result = { data: result, Message: 'Success' }
         res.send(Result);
     });
-
 });
 
-app.get("/api/school/:id", (req, res) => {
+app.get("/api/school/admins", (req, res) => {
+    const sqlget = "SELECT * FROM school INNER JOIN admin ON school.Id = admin.schoolId";
+    // const sqlget = "SELECT * FROM admin CROSS JOIN school";
 
+    connection.query(sqlget, (err, result) => {
+        if(err){
+            res.status(500).send("Error fetching data from database");
+            console.log(err);
+            return;
+        }
+        let Result = { data: result }
+        res.send(Result);
+    })
+})
+
+app.get("/api/school/:id", (req, res) => {
+    
     id = req.params.id;
     const sqlget = `SELECT * FROM school WHERE id = ${[id]} `;
-
+    
     connection.query(sqlget, (err, result) => {
         if (err) {
             res.status(500).send("Error fetching data from database");
@@ -53,7 +69,7 @@ app.get("/api/school/:id", (req, res) => {
 
 app.delete("/api/school/:id", (req, res) => {
     id = req.params.id;
-
+    
     const sqlDelete = `DELETE FROM school WHERE Id = ${[id]}`;
     connection.query(sqlDelete, [id], (err, result) => {
         if (err) {
@@ -66,7 +82,7 @@ app.delete("/api/school/:id", (req, res) => {
         Result.Model = req.body;
         Result.Message = "Data is deleted";
         Result.Status = 200;
-
+        
         console.log("Data deleted successfully");
         res.status(200).send("Data deleted successfully");
     });
@@ -74,7 +90,7 @@ app.delete("/api/school/:id", (req, res) => {
 
 
 app.get("/api/student", (req, res) => {
-
+    
     const sqlget = "SELECT * FROM student";
     connection.query(sqlget, (err, result) => {
         if (err) {
@@ -84,7 +100,7 @@ app.get("/api/student", (req, res) => {
         let Result = { data: result, Message: 'Success' }
         res.send(Result);
     });
-
+    
 });
 
 app.get("/api/admin", (req, res) => {
@@ -98,11 +114,11 @@ app.get("/api/admin", (req, res) => {
         let Result = { data: result, Message: 'Success' }
         res.send(Result);
     });
-
+    
 });
 
 app.get("/api/faculty", (req, res) => {
-
+    
     const sqlget = "SELECT * FROM faculty";
     connection.query(sqlget, (err, result) => {
         if (err) {
@@ -112,11 +128,11 @@ app.get("/api/faculty", (req, res) => {
         let Result = { data: result, Message: 'Success' }
         res.send(Result);
     });
-
+    
 });
 
 app.get("/api/parents", (req, res) => {
-
+    
     const sqlget = "SELECT * FROM parents";
     connection.query(sqlget, (err, result) => {
         if (err) {
@@ -126,11 +142,11 @@ app.get("/api/parents", (req, res) => {
         let Result = { data: result, Message: 'Success' }
         res.send(Result);
     });
-
+    
 });
 
 app.get("/api/timetable", (req, res) => {
-
+    
     const sqlget = "SELECT * FROM exam_time_table";
     connection.query(sqlget, (err, result) => {
         if (err) {
@@ -142,10 +158,60 @@ app.get("/api/timetable", (req, res) => {
     });
 });
 
+app.post("/api/userInfo", (req, res) => {
+
+    const {Id, UserName, Password, RoleId} = req.body;
+
+    const sqlInsert = `INSERT INTO userInfo VALUES (?,?,?,?)`;
+
+    connection.query(sqlInsert, [Id, UserName, Password, RoleId], (err, result) => {
+        if(err){
+            Result.IsSuccess = false;
+            Result.Model = [];
+            Result.Message = "Error on inserting the user data";
+            Result.Status = 404;
+            console.log(err);
+        }else{
+            console.log("User data is inserted")
+            Result.IsSuccess = true;
+            Result.Model = req.body;
+            Result.Message = "data is successfully inserted";
+            Result.Status = 200;
+        }
+        res.send(Result);
+    })
+})
+
+app.post("/api/login", async (req, res) => {
+
+    const { UserName, Password } = req.body;
+    const sqlcondition = `SELECT * FROM userinfo WHERE userName = '${UserName}' AND password = '${Password}'`;
+
+    connection.query(sqlcondition, [UserName, Password], (err, result) => {
+        if(err) throw err;
+
+        if(result.length > 0){
+            const token = jwt.sign({UserName, Password}, 'my_secret_key');
+
+            Result.IsSuccess = true;
+            Result.Model = token;
+            Result.Message = "User does exist";
+            Result.Status = 200;
+        }else {
+            Result.IsSuccess = false;
+            Result.Model = [];
+            Result.Message = "Incorrect UserName or Password";
+            Result.Status = 404;
+        }
+        res.send(Result);
+        res.end();
+    });
+});
+
 app.post("/api/timetable", (req, res) => {
-
+    
     const{Date, Id, Subject, isActive, timeFrom, timeTo, Exam} = req.body
-
+    
     const sqlInsert = `INSERT INTO exam_time_table VALUES (?,?,?,?,?,?,?)`;
     connection.query(sqlInsert, [Date,Id,Subject,isActive,timeFrom,timeTo,Exam], (err, result) => {
         

@@ -1,0 +1,18 @@
+<div class="login-form-container">
+    <form class="form-container" (submit)="onSubmit()" [formGroup]="loginInfo.form">
+        <mat-label class="header">Login</mat-label>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>UserName:</mat-label>
+            <input matInput type="text" formControlName="UserName" >
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text' " formControlName="Password" >
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+
+        <button class="submit-button" type="submit">Login</button>
+    </form>
+</div>

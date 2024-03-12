@@ -6,10 +6,16 @@ import { Users } from '../enums/users';
 })
 export class UserService {
 
+  setAuth!:boolean;
+
   constructor() { }
 
   isAuthenticated():boolean {
-    return true;
+    const authToken = localStorage.getItem('authToken');
+    if(authToken){
+      return this.setAuth = true;
+    }
+    return this.setAuth;
   }
 
   getRole():number {
