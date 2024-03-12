@@ -4,6 +4,7 @@ export class AppRoute {
     static Login: string = 'login';
     static Attendance: string = 'attendance';
     static TimeTable: string = 'timetable';
+    static Profile: string = 'profile';
     static Add: string = 'add';
 
     static getRoute(...items: string[]) {

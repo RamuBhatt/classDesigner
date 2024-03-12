@@ -9,9 +9,9 @@
                         <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                 </button>
-                <ul *ngIf="app.isActive && app.roles.includes(userRole)">
-                    <li *ngFor="let subApp of (app.children)" (click)="navigateTo(subApp.url)">
-                        <button class="cta">
+                <ul *ngIf="app.isActive">
+                    <li *ngFor="let subApp of (app.children)">
+                        <button class="cta" *ngIf="subApp.roles.includes(userRole)" (click)="navigateTo(subApp.url)">
                             <span>{{subApp.menu}}</span>
                             <svg width="15px" height="10px" viewBox="0 0 13 10">
                                 <path d="M1,5 L11,5"></path>

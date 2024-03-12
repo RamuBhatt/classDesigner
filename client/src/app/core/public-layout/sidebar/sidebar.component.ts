@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { App } from '../../../class/app-menu';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AppRoute } from '../../../class/app-route';
-import { User } from '../../../interface/user';
 import { UserService } from '../../../service/user.service';
 import { Users } from '../../../enums/users';
 
@@ -23,9 +21,8 @@ export class SidebarComponent {
   }
 
   navigateTo(app: any) {
+    debugger
     this.router.navigate([app.url]);
-    App.map((a: any) => {
-      a.isActive = (a == app) ? true : false;
-    })
+    App.map((a: any) => a.isActive = (a == app) ? true : false)
   }
 }
