@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit{
   userInfo!:SignUp;
   hide:boolean = true;
 
-  constructor(private route: Route,private formbuilder: FormBuilder, private signupService: SignupService) {}
+  constructor(private formbuilder: FormBuilder, private signupService: SignupService) {}
   
   ngOnInit(): void {
     this.userInfo = new SignUp(this.formbuilder);

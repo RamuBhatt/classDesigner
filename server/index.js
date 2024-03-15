@@ -23,7 +23,6 @@ const Result = {
     Status:null
 }
 
-
 app.get("/api/school", (req, res) => {
 
     const sqlget = "SELECT * FROM school";
