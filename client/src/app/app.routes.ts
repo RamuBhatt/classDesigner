@@ -3,6 +3,8 @@ import { ContainerComponent } from './core/public-layout/container/container.com
 import { Users } from './enums/users';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
+import { LoginComponent } from './module/login/login/login.component';
+import { SignupComponent } from './module/signup/signup.component';
 
 export const routes: Routes = [
     {
@@ -15,6 +17,15 @@ export const routes: Routes = [
         path: '',
         component: ContainerComponent,
         loadChildren: () => import("./module/basic.module").then(m => m.BasicModule)
+    },
+    {
+        path:'login',
+        component: LoginComponent
+    },
+    {
+        // canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Student,  Users.Faculty, Users.Parents] },
+        path:'signup',
+        component: SignupComponent
     },
     {
         canActivate: [AuthGuard, RoleGuard], data: { role: [Users.Student,  Users.Faculty, Users.Parents] },

@@ -12,5 +12,7 @@ export interface User extends BaseEntities{
     LastName: string;
     Gender: string;
     Email: string;
+    RoleId:string;
     Phone: number;
+    Password: string;
 }

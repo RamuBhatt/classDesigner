@@ -1,0 +1,27 @@
+<div class="signup-form-container">
+    <form class="form-container" (submit)="onSubmit()" [formGroup]="userInfo.form">
+        <mat-label class="header">Sign Up</mat-label>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>UserName:</mat-label>
+            <input matInput type="text" formControlName="UserName">
+            <mat-error *ngIf="userInfo.form.get('UserName')?.hasError('required')">
+                Username is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Password:</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="userInfo.form.get('Password')?.hasError('required')">
+                Password is required
+            </mat-error>
+            <mat-error *ngIf="userInfo.form.get('Password')?.hasError('minlength')">
+                Minimum character is 4
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" class="submit-button ">Submit</button>
+    </form>
+</div>

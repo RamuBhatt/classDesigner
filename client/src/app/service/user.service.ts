@@ -9,7 +9,11 @@ export class UserService {
   constructor() { }
 
   isAuthenticated():boolean {
-    return true;
+    const authToken = localStorage.getItem('authToken');
+    if(authToken){
+      return true;
+    }
+    return false;
   }
 
   getRole():number {
