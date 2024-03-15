@@ -1,0 +1,9 @@
+.list-class{
+    margin-top: 1rem;
+}
+
+.class-container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

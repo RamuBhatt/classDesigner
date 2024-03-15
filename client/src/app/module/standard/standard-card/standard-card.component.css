@@ -1,0 +1,29 @@
+.box {
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.1s ease-in-out;
+  user-select: none;
+  text-transform: capitalize;  
+}
+
+.box h3 {
+  padding: 3rem;
+  font-size: 4rem;
+  color: var(--primery-color);
+}
+
+.box:hover {
+  translate: 0 -5px;
+  cursor: pointer;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  background-color: #b1dae7;
+}
+
+.box:active {
+  scale: 95%;
+}
+
+.create-class{
+  background-color: transparent;
+  border: 2px dashed black;
+}

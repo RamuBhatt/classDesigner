@@ -6,7 +6,7 @@ header{
 
 main{
     display: grid;
-    min-height: calc(100dvh - 5rem);
+    min-height: calc(100dvh - 5rem - 1px);
     grid-template-columns: 30% 1fr;
 }
 

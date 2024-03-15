@@ -21,7 +21,6 @@ export class SidebarComponent {
   }
 
   navigateTo(app: any) {
-    debugger
     this.router.navigate([app.url]);
     App.map((a: any) => a.isActive = (a == app) ? true : false)
   }

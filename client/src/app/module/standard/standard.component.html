@@ -1,1 +1,16 @@
-<p>standard works!</p>
+<section class="page">
+    <div class="page-header">
+        <div class="page-title">Standard</div>
+    </div>
+    <div class="page-body">
+        <div class="box f-full">
+            <p class="box-body">Your are currently enrolled into these classes</p>
+        </div>
+        <button class="primery-btn">New Class</button>
+        <div class="class-container f-100">
+            <div class="list-class" *ngFor="let class of Standards">
+                <app-standard-card [class]="class"></app-standard-card>
+            </div>
+        </div>
+    </div>
+</section>

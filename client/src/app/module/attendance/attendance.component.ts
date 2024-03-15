@@ -16,7 +16,7 @@ export class AttendanceComponent {
     {
       status: true,
       roll: 40394,
-      name: 'rammu bhatt'
+      name: 'monkey D. luffy'
     },
     {
       status: false,
@@ -25,7 +25,57 @@ export class AttendanceComponent {
     },
     {
       status: true,
-      roll: 98546,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
+      name: 'yash suthar'
+    },
+    {
+      status: true,
+      roll: 95746,
       name: 'yash suthar'
     },
   ]
@@ -33,11 +83,11 @@ export class AttendanceComponent {
   currentDate: Date = new Date();
 
   update(selected: any) {
-    this.presents = selected.selectedOptions.selected.map((s: any) => console.log(s.value));
-    this.Students = this.Students.map(std => {
+    this.presents = selected.selectedOptions.selected.map((s: any) => s.value);
+    let presentStudent = this.Students.map(std => {
       if (this.presents.includes(std.roll)) return { ...std, status: true }
-      else return std
+      else return { ...std, status: false }
     })
-    console.log(this.Students);
+    console.log(this.presents,presentStudent);
   }
 }

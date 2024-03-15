@@ -6,6 +6,7 @@ export class AppRoute {
     static TimeTable: string = 'timetable';
     static Profile: string = 'profile';
     static Add: string = 'add';
+    static Standard: string = 'standard';
 
     static getRoute(...items: string[]) {
         let URL = items.join('/');

@@ -15,7 +15,7 @@ export const App = [
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         children: [{
             menu: AppRoute.Add,
-            url: AppRoute.getRoute(AppRoute.Add),
+            url: AppRoute.getRoute(AppRoute.TimeTable, AppRoute.Add),
             roles: [Users.Admin, Users.Faculty]
         }]
     },
@@ -27,6 +27,17 @@ export const App = [
         children: [{
             menu: AppRoute.Add,
             url: AppRoute.getRoute(AppRoute.Attendance, AppRoute.Add),
+            roles: [Users.Admin, Users.Faculty]
+        }]
+    },
+    {
+        menu: AppRoute.Standard,
+        url: AppRoute.getRoute(AppRoute.Standard),
+        roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
+        isActive: false,
+        children: [{
+            menu: AppRoute.Add,
+            url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Add),
             roles: [Users.Admin, Users.Faculty]
         }]
     }
