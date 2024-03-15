@@ -1,24 +1,26 @@
 <div class="app-sidebar">
     <ul>
         <li *ngFor="let app of App">
-            <button class="cta" [class.active]="app.isActive" (click)="navigateTo(app)">
-                <span>{{app.menu}}</span>
-                <svg width="15px" height="10px" viewBox="0 0 13 10">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </button>
-            <ul>
-                <li *ngFor="let subApp of (app.children)" (click)="navigateTo(subApp.url)">
-                    <button class="cta">
-                        <span>{{subApp.menu}}</span>
-                        <svg width="15px" height="10px" viewBox="0 0 13 10">
-                            <path d="M1,5 L11,5"></path>
-                            <polyline points="8 1 12 5 8 9"></polyline>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
+            <div *ngIf="app.roles.includes(userRole)">
+                <button class="cta" [class.active]="app.isActive" (click)="navigateTo(app)">
+                    <span>{{app.menu}}</span>
+                    <svg width="15px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>
+                <ul *ngIf="app.isActive">
+                    <li *ngFor="let subApp of (app.children)">
+                        <button class="cta" *ngIf="subApp.roles.includes(userRole)" (click)="navigateTo(subApp.url)">
+                            <span>{{subApp.menu}}</span>
+                            <svg width="15px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
 </div>

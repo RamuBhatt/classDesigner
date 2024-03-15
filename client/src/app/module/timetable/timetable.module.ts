@@ -30,7 +30,6 @@ const routes: Routes = [
     canActivate: [RoleGuard], data: { role: [Users.Admin, Users.Faculty] },
     path: AppRoute.Add,
     component: CreateTimetableComponent
-    // loadChildren: () => import('./create-timetable/create-timetable.component').then(c => c.CreateTimetableComponent)
   }
 ]
 

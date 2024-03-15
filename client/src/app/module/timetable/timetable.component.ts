@@ -14,6 +14,7 @@ export class TimetableComponent implements OnInit {
   canAccess!: boolean
   AllTimetable!: Timetable[];
   TableList: any = []
+  date: Date = new Date(Date.now());
 
   constructor(
     private userService: UserService,

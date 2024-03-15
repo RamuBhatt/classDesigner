@@ -15,18 +15,18 @@ export const App = [
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         children: [{
             menu: AppRoute.Add,
-            url: AppRoute.getRoute(AppRoute.TimeTable, AppRoute.Add),
+            url: AppRoute.getRoute(AppRoute.Add),
             roles: [Users.Admin, Users.Faculty]
         }]
     },
     {
-        menu: AppRoute.Attandance,
-        url: AppRoute.getRoute(AppRoute.Attandance),
+        menu: AppRoute.Attendance,
+        url: AppRoute.getRoute(AppRoute.Attendance),
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         isActive: false,
         children: [{
             menu: AppRoute.Add,
-            url: AppRoute.getRoute(AppRoute.Attandance, AppRoute.Add),
+            url: AppRoute.getRoute(AppRoute.Attendance, AppRoute.Add),
             roles: [Users.Admin, Users.Faculty]
         }]
     }
