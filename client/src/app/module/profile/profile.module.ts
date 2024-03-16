@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile.component';
+import { StudentComponent } from './student/student.component';
+import { FacultyComponent } from './faculty/faculty.component';
+import { SchoolComponent } from './school/school.component';
 
 
 const routes: Routes = [
@@ -10,7 +13,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    StudentComponent,
+    FacultyComponent,
+    SchoolComponent
   ],
   imports: [
     CommonModule,

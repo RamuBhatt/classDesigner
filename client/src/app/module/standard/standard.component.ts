@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IStandard } from './standard';
+import { Users } from '../../enums/users';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-standard',
@@ -13,4 +15,8 @@ export class StandardComponent {
     { id: "390", name: '4', div: 'A' },
     { id: "293", name: '2', div: 'B' },
   ]
+  role: Users;
+
+  constructor(private userService: UserService) { this.role = userService.getRole() }
+
 }

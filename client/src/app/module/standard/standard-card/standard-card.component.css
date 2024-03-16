@@ -1,13 +1,19 @@
 .box {
-  padding: 1rem;
+  /* padding: 1rem; */
   text-align: center;
   transition: all 0.1s ease-in-out;
   user-select: none;
   text-transform: capitalize;  
+  width: 14rem;
+  height: 15rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .box h3 {
-  padding: 3rem;
   font-size: 4rem;
   color: var(--primery-color);
 }

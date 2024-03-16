@@ -1,0 +1,42 @@
+.box {
+  text-align: center;
+  transition: all 0.1s ease-in-out;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 13rem;
+  height: 15rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  scale: 3;
+  padding-top: 3rem;
+  color: var(--primery-color);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+}
+
+p {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.box:hover {
+  translate: 0 -5px;
+  cursor: pointer;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.box:active {
+  scale: 95%;
+}
+
+.box:hover .icon {
+  /* transform: rotate(360deg); */
+}

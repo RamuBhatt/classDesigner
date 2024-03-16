@@ -33,12 +33,18 @@ export const App = [
     {
         menu: AppRoute.Standard,
         url: AppRoute.getRoute(AppRoute.Standard),
-        roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
+        roles: [Users.Admin, Users.Faculty],
         isActive: false,
         children: [{
-            menu: AppRoute.Add,
-            url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Add),
+            menu: AppRoute.All,
+            url: AppRoute.getRoute(AppRoute.Standard, AppRoute.All),
             roles: [Users.Admin, Users.Faculty]
         }]
+    },
+    {
+        menu: AppRoute.Profile,
+        url: AppRoute.getRoute(AppRoute.Profile),
+        roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
+        isActive: false,
     }
 ]

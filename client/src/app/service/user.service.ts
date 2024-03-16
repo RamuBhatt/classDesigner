@@ -6,17 +6,22 @@ import { Users } from '../enums/users';
 })
 export class UserService {
 
+  authToken = localStorage.getItem('authToken');
+
   constructor() { }
 
-  isAuthenticated():boolean {
-    const authToken = localStorage.getItem('authToken');
-    if(authToken){
+  isAuthenticated(): boolean {
+    if (this.authToken) {
       return true;
     }
     return false;
   }
 
-  getRole():number {
+  getRole(): number {
     return Users.Admin;
+  }
+
+  getName(): string {
+    return 'Kushagra Gangwal'
   }
 }

@@ -5,8 +5,11 @@ export class AppRoute {
     static Attendance: string = 'attendance';
     static TimeTable: string = 'timetable';
     static Profile: string = 'profile';
-    static Add: string = 'add';
     static Standard: string = 'standard';
+    
+    static Add: string = 'add';
+    static All: string = 'all';
+    static List: string = 'list';
 
     static getRoute(...items: string[]) {
         let URL = items.join('/');
