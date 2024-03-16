@@ -44,27 +44,9 @@ export class TimetableComponent implements OnInit {
   getTimetable() {
     this.timetableService.get().subscribe({
       next: async (result: any) => {
-        this.AllTimetable = result.data
-        this.filterFromData()
+        this.TableDataFromAPI = result
       },
       error: (error) => console.log(error)
     })
   }
-
-  filterFromData() {
-    this.AllTimetable.filter(t => {
-      if (this.TableList.includes(t.Exam)) return false;
-      else {
-        this.TableList.push(t.Exam);
-        return true;
-      };
-    })
-
-    this.TableDataFromAPI = this.TableList.map((table: any) => {
-      let TableData = this.AllTimetable.filter(t => t.Exam == table);
-      return { header: table, data: TableData };
-    })
-  }
-
-
 }

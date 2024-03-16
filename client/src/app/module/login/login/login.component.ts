@@ -7,6 +7,8 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from '../../signup/signup.service';
 import { SignUp } from '../../signup/signup';
 import { Router } from '@angular/router';
+import { UserService } from '../../../service/user.service';
+import { AppRoute } from '../../../class/app-route';
 
 
 @Component({
@@ -25,31 +27,32 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginInfo!:SignUp;
-  hide:boolean = true;
+  loginInfo!: SignUp;
+  hide: boolean = true;
 
   constructor(
-    private service: SignupService, 
+    private service: SignupService,
     private formbuilder: FormBuilder,
+    private userService: UserService,
     private router: Router
-    ){
-      const authToken = localStorage.getItem('authToken');
-      if(authToken){
-        this.router.navigate(['']);
-      }
+  ) {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      this.router.navigate(['']);
     }
-
-  ngOnInit(): void {
-      this.loginInfo = new SignUp(this.formbuilder);
-      this.loginInfo.createForm();
   }
 
-  onSubmit(){
-    if(this.loginInfo.form.valid){
+  ngOnInit(): void {
+    this.loginInfo = new SignUp(this.formbuilder);
+    this.loginInfo.createForm();
+  }
+
+  onSubmit() {
+    if (this.loginInfo.form.valid) {
       this.service.login(this.loginInfo.form.value).subscribe({
-        next: (data:any) => {
-          localStorage.setItem('authToken',data.Model);
-          if(data.Model){
+        next: (data: any) => {
+          if (data.IsSuccess) {
+            this.userService.setToken(data.Model)
             this.router.navigate(['']);
           }
         },

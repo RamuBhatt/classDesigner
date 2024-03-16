@@ -6,11 +6,22 @@ import { Users } from '../enums/users';
 })
 export class UserService {
 
-  authToken = localStorage.getItem('authToken');
+  authToken!: string | null;
 
-  constructor() { }
+  constructor() {
+    this.getToken();
+  }
+
+  getToken() {
+    this.authToken = localStorage.getItem('authToken');
+  }
+
+  setToken(token: string): void {
+    localStorage.setItem('authToken', token);
+  }
 
   isAuthenticated(): boolean {
+    this.getToken();
     if (this.authToken) {
       return true;
     }

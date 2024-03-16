@@ -4,7 +4,9 @@
     </div>
     <div class="page-body">
         <div class="box">
-            <div class="box-title">Create Exam Time Table</div>
+            <p> You can Add new Exam Sheet or update the data sheet</p>
+        </div>
+        <div class="box">
             <div class="box-body">
                 <form id="timetable-form" name="create-timetable" (ngSubmit)="Submit()" [formGroup]="timetable.form">
 
@@ -25,7 +27,7 @@
 
                     </mat-form-field>
 
-                    <mat-form-field appearance="outline">
+                    <mat-form-field class="subject" appearance="outline">
                         <mat-label>Subject</mat-label>
                         <input matInput placeholder="eg. Maths" formControlName="Subject">
                     </mat-form-field>
@@ -40,12 +42,11 @@
                         <input matInput placeholder="eg. 11" formControlName="TimeTo">
                     </mat-form-field>
 
-                    <mat-slide-toggle [checked]="timetable.form.controls['isActive'].value"
+                    <mat-slide-toggle class="isActive" [checked]="timetable.form.controls['isActive'].value"
                         formControlName="isActive">Active</mat-slide-toggle>
 
                     <button type="submit" class="primery-btn">Add</button>
                 </form>
-                <p>{{timetable.form.get('Date')?.value | date:'long'}}</p>
             </div>
         </div>
     </div>

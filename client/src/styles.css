@@ -19,11 +19,9 @@ li {
   list-style: none;
 }
 
-
 :root {
   --primery-color: #234567;
 }
-
 
 /* global component css */
 .primery-btn {
@@ -47,6 +45,8 @@ li {
   background-color: transparent;
 }
 
+
+/* page layout start */
 .page {
   padding: 1rem;
   max-width: 80%;
@@ -84,14 +84,23 @@ li {
 .box-body {
 }
 
-.box-title .small-title {
+.small-title {
   font-size: 1rem;
   color: #888;
   font-weight: 300;
 }
+/* page layout end */
 
+
+/* flex sizeing helpers */
 .f-100 {
   flex-basis: 100%;
+}
+.f-50 {
+  flex-basis: 50%;
+}
+.f-30 {
+  flex-basis: 30%;
 }
 .f-full {
   flex-grow: 1;

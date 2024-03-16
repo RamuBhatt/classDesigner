@@ -1,17 +1,11 @@
 <section class="page">
     <div class="page-header">
-        <div class="page-title">Standard</div>
+        <div class="page-title">Standards</div>
     </div>
     <div class="page-body">
-        <div class="box f-full">
+        <div class="box small-title ">
             <p class="box-body">Your are currently enrolled into these classes</p>
         </div>
-        <button class="primery-btn">New Class</button>
-        <div class="class-container f-100">
-            <div class="list-class" *ngFor="let class of Standards">
-                <app-standard-card [class]="class"></app-standard-card>
-            </div>
-            <app-create-standard *ngIf="role == 0"></app-create-standard>
-        </div>
+        <app-standard-list [role]="role"></app-standard-list>
     </div>
 </section>

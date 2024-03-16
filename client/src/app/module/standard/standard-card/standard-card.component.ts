@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IStandard } from '../standard';
+import { Router } from '@angular/router';
+import { AppRoute } from '../../../class/app-route';
 
 @Component({
   selector: 'app-standard-card',
@@ -8,4 +10,10 @@ import { IStandard } from '../standard';
 })
 export class StandardCardComponent {
   @Input() class!: IStandard;
+
+  constructor(private router: Router) { }
+
+  navigate(id: string) {
+    this.router.navigate([AppRoute.getRoute(AppRoute.Standard, id)]);
+  }
 }

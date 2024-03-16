@@ -11,11 +11,11 @@ export class SignupService {
   constructor(private http: HttpClient) { }
 
   create(data: SignUp){
-    return this.http.post(environment.api + '/userInfo', data);
+    return this.http.post(environment.api + 'signup', data);
   }
 
   login(data: SignUp){
-    return this.http.post(environment.api + '/login', data);
+    return this.http.post(environment.api + 'login', data);
   }
 
 }

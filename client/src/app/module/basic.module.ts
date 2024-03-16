@@ -7,6 +7,7 @@ import { RoleGuard } from '../guards/role.guard';
 import { AuthGuard } from '../guards/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { TimetableService } from './timetable/timetable.service';
+import { EnrollComponent } from './enroll/enroll.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: AppRoute.Standard,
-    loadChildren: () => import('./standard/standard.module').then(m => m.StandardModule)
+    loadChildren: () => import('./standard/standard.module').then(m => m.StandardModule),
   },
 ]
 
@@ -39,6 +40,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule
-  ]
+  ],
 })
 export class BasicModule { }
