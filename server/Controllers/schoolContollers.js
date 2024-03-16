@@ -1,6 +1,6 @@
-const { connection, Result } = require("./connectionController");
+const { connection } = require("./connectionController");
 
-const getSchoolsInfo = () => {
+const getSchoolsInfo = (req, res) => {
     const sqlget = "SELECT * FROM school";
     connection.query(sqlget, (err, result) => {
         if (err) {
@@ -11,3 +11,5 @@ const getSchoolsInfo = () => {
         res.send(Result);
     });
 }
+
+module.exports = getSchoolsInfo
