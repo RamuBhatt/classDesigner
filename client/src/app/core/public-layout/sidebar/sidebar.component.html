@@ -11,7 +11,8 @@
                 </button>
                 <ul *ngIf="app.isActive">
                     <li *ngFor="let subApp of (app.children)">
-                        <button class="cta subapp" *ngIf="subApp.roles.includes(userRole)" (click)="navigateTo(subApp,'Yes')">
+                        <button class="cta subapp" *ngIf="subApp.roles.includes(userRole)"
+                            (click)="navigateTo(subApp,'Yes')">
                             <span>{{subApp.menu}}</span>
                             <svg width="15px" height="10px" viewBox="0 0 13 10">
                                 <path d="M1,5 L11,5"></path>

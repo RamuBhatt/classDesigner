@@ -6,13 +6,13 @@ export interface BaseEntities {
     UpdatedOn?: Date;
     UpdatedBy?: number;
 }
-export interface User extends BaseEntities{
+export interface User extends BaseEntities {
     SchoolId: number;
     FirstName: string;
     LastName: string;
     Gender: string;
     Email: string;
-    RoleId:string;
+    RoleId: string;
     Phone: number;
     Password: string;
 }

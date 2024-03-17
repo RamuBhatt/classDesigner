@@ -9,12 +9,6 @@ import { UserService } from '../../service/user.service';
   styleUrl: './standard.component.scss'
 })
 export class StandardComponent {
-  Standards: IStandard[] = [
-    { id: "123", name: '8', div: 'junior' },
-    { id: "456", name: '10', div: 'senior' },
-    { id: "390", name: '4', div: 'A' },
-    { id: "293", name: '2', div: 'B' },
-  ]
   role: Users;
 
   constructor(private userService: UserService) { this.role = userService.getRole() }

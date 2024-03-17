@@ -31,6 +31,11 @@ const routes: Routes = [
     path: AppRoute.Standard,
     loadChildren: () => import('./standard/standard.module').then(m => m.StandardModule),
   },
+  {
+    path: AppRoute.Subject,
+    loadChildren: () => import('./subject/subject.module').then(m => m.SubjectModule)
+  },
+
 ]
 
 @NgModule({

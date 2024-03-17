@@ -37,6 +37,10 @@ p {
   scale: 95%;
 }
 
-.box:hover .icon {
-  /* transform: rotate(360deg); */
+.input {
+  width: 80%;
+}
+
+.editing{
+  background-color: white;
 }

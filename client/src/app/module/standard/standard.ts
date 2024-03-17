@@ -1,5 +1,6 @@
 export interface IStandard {
-    id: string;
-    name: string;
-    div: string;
+    Id: string;
+    Name: string;
+    Division: string;
+    SchoolId: string;
 }

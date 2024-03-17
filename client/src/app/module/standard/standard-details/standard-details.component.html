@@ -1,16 +1,93 @@
 <section class="page">
-    <div class="page-header">
-        <p class="page-title">8<sup>th</sup> Standard</p>
-    </div>
     <div class="page-body">
-        <!-- <div class="box f-30">
-            <p class="box-title">Your name</p>
-            <p class="box-body">Date</p>
-        </div> -->
+        <!-- subject Card -->
+        <div class="box card">
+            <div class="icon">
+                <i class="bi bi-journals"></i>
+            </div>
+            <button class="primery-btn" (click)="goToSubject()">Subjects</button>
+        </div>
+        <!-- subject card end -->
+        <!-- subject Card -->
+        <div class="box card">
+            <div class="icon">
+                <i class="bi bi-calendar2-date"></i>
+            </div>
+            <button class="primery-btn" (click)="goToTimeTable()">Exams</button>
+        </div>
+        <!-- subject card end -->
+
+        <div class="f-100"></div>
+
+        <!-- Enroll User -->
+        <div class="box-title"><i class="bi bi-person-plus"></i> &nbsp; Add users</div>
         <div class="box f-100">
-            <p class="box-title">Enroll Users</p>
             <div class="box-body">
-                <app-enroll></app-enroll>
+                <app-enroll [standardId]="standardId" [schoolId]="schoolId"></app-enroll>
+            </div>
+        </div>
+        <!-- Enroll User -->
+
+        <div class="f-100"></div>
+
+        <div class="box-title"><i class="bi bi-clipboard-x"></i> &nbsp; Not Assigned Yet </div>
+        <div class="box f-100">
+            <div class="box-body">
+                <mat-accordion>
+                    <!-- Faculty -->
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Faculty
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p *ngIf="!unFaculty">No Users</p>
+                        <app-list-users *ngFor="let user of unFaculty" [user]="user"></app-list-users>
+                    </mat-expansion-panel>
+
+                    <mat-divider></mat-divider>
+
+                    <!-- Student -->
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Students
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p *ngIf="!unStudents">No Users</p>
+                        <app-list-users *ngFor="let user of unStudents" [user]="user"></app-list-users>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+        <div class="f-100">
+        </div>
+        <div class="box-title"><i class="bi bi-clipboard-check"></i> &nbsp; All Users </div>
+        <div class="box f-100">
+            <div class="box-body">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Faculty
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p *ngIf="!acFaculty">No Users</p>
+                        <app-list-users *ngFor="let user of acFaculty" [user]="user"></app-list-users>
+                    </mat-expansion-panel>
+
+                    <mat-divider></mat-divider>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Students
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p *ngIf="!acStudents">No Users</p>
+                        <app-list-users *ngFor="let user of acStudents" [user]="user"></app-list-users>
+                    </mat-expansion-panel>
+                </mat-accordion>
             </div>
         </div>
     </div>
