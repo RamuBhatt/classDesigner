@@ -1,6 +1,6 @@
 export interface BaseEntities {
     Id: number;
-    isActive: boolean;
+    IsActive: boolean;
     CreatedOn?: Date;
     CreatedBy?: number;
     UpdatedOn?: Date;

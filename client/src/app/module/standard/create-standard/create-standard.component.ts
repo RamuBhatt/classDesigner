@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 import { UserService } from '../../../service/user.service';
@@ -12,6 +12,7 @@ import { StandardService } from '../standard.service';
 export class CreateStandardComponent {
   isEditing!: boolean;
   Class: FormGroup;
+  @Output() refresh = new EventEmitter();
 
   constructor(
     private userService: UserService,
@@ -36,6 +37,7 @@ export class CreateStandardComponent {
     this.standardService.create(this.Class.value).subscribe({
       next: (data) => {
         console.log(data);
+        this.refresh.emit();
       },
       error: (data) => {
         console.log(data);

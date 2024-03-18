@@ -46,10 +46,12 @@ export class StandardDetailsComponent implements OnInit {
         if (!data.IsSuccess) return;
 
         const users: User[] = data.Model;
-        this.unFaculty = users.filter(u => !u.isActive && u.RoleId == Users.Faculty.toString());
-        this.unStudents = users.filter(u => !u.isActive && u.RoleId == Users.Student.toString());
-        this.acFaculty = users.filter(u => u.isActive && u.RoleId == Users.Faculty.toString());
-        this.acStudents = users.filter(u => u.isActive && u.RoleId == Users.Student.toString());
+        console.log(users);
+
+        this.unFaculty = users.filter(u => !u.IsActive && u.RoleId == Users.Faculty.toString());
+        this.unStudents = users.filter(u => !u.IsActive && u.RoleId == Users.Student.toString());
+        this.acFaculty = users.filter(u => u.IsActive && u.RoleId == Users.Faculty.toString());
+        this.acStudents = users.filter(u => u.IsActive && u.RoleId == Users.Student.toString());
       },
       error: (e) => console.error(e)
     })

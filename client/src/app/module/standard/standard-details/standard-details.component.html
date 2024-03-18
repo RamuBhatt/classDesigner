@@ -41,7 +41,7 @@
                                 Faculty
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!unFaculty">No Users</p>
+                        <p *ngIf="!unFaculty.length">No Users</p>
                         <app-list-users *ngFor="let user of unFaculty" [user]="user"></app-list-users>
                     </mat-expansion-panel>
 
@@ -54,7 +54,7 @@
                                 Students
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!unStudents">No Users</p>
+                        <p *ngIf="!unStudents.length">No Users</p>
                         <app-list-users *ngFor="let user of unStudents" [user]="user"></app-list-users>
                     </mat-expansion-panel>
                 </mat-accordion>
@@ -72,7 +72,7 @@
                                 Faculty
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!acFaculty">No Users</p>
+                        <p *ngIf="!acFaculty.length">No Users</p>
                         <app-list-users *ngFor="let user of acFaculty" [user]="user"></app-list-users>
                     </mat-expansion-panel>
 
@@ -84,7 +84,7 @@
                                 Students
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!acStudents">No Users</p>
+                        <p *ngIf="!acStudents.length">No Users</p>
                         <app-list-users *ngFor="let user of acStudents" [user]="user"></app-list-users>
                     </mat-expansion-panel>
                 </mat-accordion>

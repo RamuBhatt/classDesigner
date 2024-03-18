@@ -46,6 +46,6 @@ export class UserService {
   }
 
   getUsers() {
-    return this.http.get<User>(environment.api + AppController.Users);
+    return this.http.get<User>(environment.api + AppController.getRoute(AppController.Users, this.getSchoolId()));
   }
 }

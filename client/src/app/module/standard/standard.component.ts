@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IStandard } from './standard';
 import { Users } from '../../enums/users';
 import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
+import { AppRoute } from '../../class/app-route';
 
 @Component({
   selector: 'app-standard',
@@ -11,6 +12,13 @@ import { UserService } from '../../service/user.service';
 export class StandardComponent {
   role: Users;
 
-  constructor(private userService: UserService) { this.role = userService.getRole() }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { this.role = userService.getRole() }
 
+  ngOnInit(): void {
+    if (this.role == Users.Student)
+      this.router.navigate([AppRoute.getRoute(AppRoute.Standard, this.userService.getStandardId())]);
+  }
 }

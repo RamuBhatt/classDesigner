@@ -15,6 +15,10 @@ export class StandardListComponent {
   constructor(private standardService: StandardService) { }
 
   ngOnInit(): void {
+    this.getStandards();
+  }
+  
+  getStandards() {
     this.standardService.get().subscribe({
       next: (data: any) => { this.Standards = data.Model },
       error: (e) => console.log(e)
