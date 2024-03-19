@@ -7,6 +7,9 @@ export class AppRoute {
     static TimeTable: string = 'timetable';
     static Profile: string = 'profile';
     static Standard: string = 'standard';
+    static Subject: string = 'subject';
+    static Faculty: string = 'faculty';
+    static Student: string = 'student';
 
     static Add: string = 'add';
     static All: string = 'all';

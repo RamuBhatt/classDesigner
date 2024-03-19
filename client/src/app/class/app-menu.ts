@@ -41,5 +41,11 @@ export const App = [
         url: AppRoute.getRoute(AppRoute.Profile),
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         isActive: false,
+    },
+    {
+        menu: AppRoute.Subject,
+        url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject, '12'),
+        roles: [Users.Parents, Users.Student],
+        isActive: false,
     }
 ]

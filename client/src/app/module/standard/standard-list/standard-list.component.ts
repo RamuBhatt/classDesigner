@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Users } from '../../../enums/users';
 import { IStandard } from '../standard';
+import { StandardService } from '../standard.service';
 
 @Component({
   selector: 'app-standard-list',
@@ -9,10 +10,18 @@ import { IStandard } from '../standard';
 })
 export class StandardListComponent {
   @Input() role!: Users;
-  Standards: IStandard[] = [
-    { id: "123", name: '8', div: 'junior' },
-    { id: "456", name: '10', div: 'senior' },
-    { id: "390", name: '4', div: 'A' },
-    { id: "293", name: '2', div: 'B' },
-  ]
+  Standards!: IStandard[];
+
+  constructor(private standardService: StandardService) { }
+
+  ngOnInit(): void {
+    this.getStandards();
+  }
+  
+  getStandards() {
+    this.standardService.get().subscribe({
+      next: (data: any) => { this.Standards = data.Model },
+      error: (e) => console.log(e)
+    })
+  }
 }

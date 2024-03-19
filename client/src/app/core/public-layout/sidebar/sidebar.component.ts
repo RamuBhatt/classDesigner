@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { App } from '../../../class/app-menu';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../service/user.service';
 import { Users } from '../../../enums/users';
 import { HeaderComponent } from '../header/header.component';
@@ -17,7 +17,13 @@ export class SidebarComponent {
   App = App;
   userRole: Users;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(
+    private router: Router,
+    private url: ActivatedRoute,
+    private userService: UserService) {
+    
+    console.log(router);
+    
     this.userRole = userService.getRole();
   }
 

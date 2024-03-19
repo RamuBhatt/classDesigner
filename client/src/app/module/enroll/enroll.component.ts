@@ -9,13 +9,28 @@ import { GenerateService } from '../../service/generate.service';
 })
 export class EnrollComponent {
   Users = Users
+  @Input() schoolId!: string;
+  @Input() standardId!: string | null;
 
   constructor(private generateService: GenerateService) { }
 
   generate(user: Users, count: string) {
-    this.generateService.EnrollStudents(Number(count)).subscribe({
-      next: (data) => { console.log(data) },
-      error: (e) => { console.log(e) }
-    })
+    const data = {
+      Count: Number(count),
+      SchoolId: this.schoolId,
+      StandardId: this.standardId
+    }
+
+    if (user == Users.Student)
+      this.generateService.enrollStudents(data).subscribe({
+        next: (data) => { console.log(data) },
+        error: (e) => { console.log(e) }
+      })
+
+    if (user == Users.Faculty)
+      this.generateService.enrollFacutly(data).subscribe({
+        next: (data) => { console.log(data) },
+        error: (e) => { console.log(e) }
+      })
   }
 }

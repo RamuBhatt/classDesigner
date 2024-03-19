@@ -13,12 +13,13 @@ export class GenerateService {
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
-  EnrollStudents(count: number) {
-    const data = {
-      StandardId: 'TEST',
-      SchoolId: '1'
-    }
-    const api = environment.api + AppController.getRoute(AppController.Admin, AppController.Student, AppController.Add, count.toString())
+  enrollStudents(data: any) {
+    const api = environment.api + AppController.getRoute(AppController.Admin, AppController.Student, AppController.Add)
+    return this.http.post(api, data);
+  }
+
+  enrollFacutly(data: any) {
+    const api = environment.api + AppController.getRoute(AppController.Admin, AppController.Faculty, AppController.Add)
     return this.http.post(api, data);
   }
 

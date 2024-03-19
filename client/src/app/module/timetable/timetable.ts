@@ -3,7 +3,7 @@ import { BaseEntities } from "../../interface/user";
 
 class BaseClass implements BaseEntities {
     Id!: number;
-    isActive!: boolean;
+    IsActive!: boolean;
     CreatedOn!: Date;
     CreatedBy!: number;
     UpdatedOn!: Date;
@@ -32,7 +32,7 @@ export class Timetable extends BaseClass {
             Subject: new FormControl(''),
             TimeFrom: new FormControl(''),
             TimeTo: new FormControl(''),
-            isActive: new FormControl(false)
+            IsActive: new FormControl(false)
         }
     }
 
@@ -41,7 +41,7 @@ export class Timetable extends BaseClass {
         this.Exam = data.Exam;
         this.Date = data.Date;
         this.Subject = data.Subject;
-        this.isActive = data.isActive;
+        this.IsActive = data.IsActive;
         this.TimeFrom = data.TimeFrom;
         this.TimeTo = data.TimeTo;
         this.form.patchValue(this);

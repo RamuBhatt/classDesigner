@@ -5,9 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [EnrollComponent],
+  declarations: [EnrollComponent, ListUsersComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -15,6 +17,6 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     FormsModule
   ],
-  exports: [EnrollComponent]
+  exports: [EnrollComponent, ListUsersComponent]
 })
 export class EnrollModule { }

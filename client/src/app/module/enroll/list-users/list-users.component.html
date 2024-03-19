@@ -1,0 +1,9 @@
+<li>
+    <i *ngIf="user.IsActive" class="bi bi-person-check"></i>
+    <i *ngIf="!user.IsActive" class="bi bi-person-x"></i>
+    <p> {{user.UserName}} </p>
+    <p *ngIf="user.IsActive"> {{user.FirstName }} {{user.LastName }}</p>
+    <!-- <i class="bi bi-box-arrow-up-right"></i> -->
+    <i class="action bi bi-arrow-up-right" (click)="openProfile()"></i>
+    <i class="action bi bi-trash3"></i>
+</li>
