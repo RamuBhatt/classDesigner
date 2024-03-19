@@ -26,26 +26,27 @@
                         <mat-datepicker #Date></mat-datepicker>
 
                     </mat-form-field>
-
+                    
                     <mat-form-field class="subject" appearance="outline">
                         <mat-label>Subject</mat-label>
                         <input matInput placeholder="eg. Maths" formControlName="Subject">
                     </mat-form-field>
-
+                    
                     <mat-form-field appearance="outline">
                         <mat-label>Time Start</mat-label>
                         <input matInput placeholder="eg. 9" formControlName="TimeFrom">
                     </mat-form-field>
-
+                    
                     <mat-form-field appearance="outline">
                         <mat-label>Time End</mat-label>
                         <input matInput placeholder="eg. 11" formControlName="TimeTo">
                     </mat-form-field>
+                    
+                    <mat-slide-toggle class="isActive" [checked]="timetable.form.controls['IsActive'].value"
+                    formControlName="IsActive">Active</mat-slide-toggle>
+                     
 
-                    <mat-slide-toggle class="isActive" [checked]="timetable.form.controls['isActive'].value"
-                        formControlName="isActive">Active</mat-slide-toggle>
-
-                    <button type="submit" class="primery-btn">Add</button>
+                    <button type="submit" class="primery-btn">Add</button> 
                 </form>
             </div>
         </div>
