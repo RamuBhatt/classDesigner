@@ -1,8 +1,8 @@
 const express = require("express");
 const adminRouter = express.Router();
 
-const studentsCreate = require("../Controllers/adminControllers");
+const createStudents = require("../Controllers/adminControllers");
 
-adminRouter.post("/admin/student/add", studentsCreate);
+adminRouter.post("/admin/student/add", createStudents);
 
 module.exports = adminRouter

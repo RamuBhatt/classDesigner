@@ -44,10 +44,10 @@ const getTable = (examName) => {
 }
 
 const createTimeTable = (req, res) => {
-    const{Id, Exam, Date, Subject, TimeFrom, TimeTo, isActive} = req.body;
+    const{Id, Exam, Date, Subject, TimeFrom, TimeTo, IsActive} = req.body;
     
     const sqlInsert = `INSERT INTO exam_time_table VALUES (?,?,?,?,?,?,?)`;
-    connection.query(sqlInsert, [Id,Subject,isActive,TimeFrom,TimeTo,Exam, Date], (err, result) => {
+    connection.query(sqlInsert, [Id,Subject,IsActive,TimeFrom,TimeTo,Exam, Date], (err, result) => {
         
         if(err){
             Result.IsSuccess = false;

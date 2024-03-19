@@ -24,15 +24,16 @@ const userRegisteration = (req, res) => {
 const userSignUp = (data, res) => {
     const SchoolId = guid.create().toString();
         const sqlSchoolInsert = "INSERT INTO schools (Id) VALUES (?)";
-        connection.query(sqlSchoolInsert, [SchoolId], (err, res) => {
+        connection.query(sqlSchoolInsert, [SchoolId], (err, result) => {
             if(err){
                 console.log(err);
+                return
             }
             console.log("Success");
         });
 
     const sqlInsert = `INSERT INTO users (Id, UserName, Password, RoleId, SchoolId) VALUES (?,?,?,?,?)`;
-    connection.query(sqlInsert, [data.Id, data.UserName, data.Password, data.RoleId, SchoolId], (err, response) => {
+    connection.query(sqlInsert, [data.Id, data.UserName, data.Password, data.RoleId, SchoolId], (err, result) => {
         if(err){
             Result.IsSuccess = false;
             Result.Model = [];
