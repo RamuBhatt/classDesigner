@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AttendanceComponent } from './attendance.component';
 import { MatListModule } from '@angular/material/list';
+import { CreateAttendanceComponent } from './create-attendance/create-attendance.component';
 
 const routes: Routes = [
   { path: '', component: AttendanceComponent }
@@ -10,7 +11,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AttendanceComponent
+    AttendanceComponent,
+    CreateAttendanceComponent
   ],
   imports: [
     CommonModule,

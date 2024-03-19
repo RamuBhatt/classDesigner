@@ -24,7 +24,7 @@ studentRouter,
 standardRouter,
 timeTableRouter,
 loginRouter,
-schoolRouter,
+schoolRouter
 );
 
 // app.use("/api", require("./Routes/adminRoutes"));

@@ -21,9 +21,7 @@ export class UserService {
   }
 
   isAuthenticated(): boolean {
-    if (this.getToken()) {
-      return true;
-    }
+    if (this.getToken()) return true;
     return false;
   }
 

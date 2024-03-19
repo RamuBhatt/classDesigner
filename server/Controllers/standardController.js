@@ -24,7 +24,7 @@ const createStandard = (req, res) => {
 
 const getAllStandard = (req, res) => {
     SchoolId = req.params.id;
-    const sqlGetAll = "SELECT * FROM standards WHERE SchoolId = ?";
+    const sqlGetAll = "SELECT * FROM standards WHERE SchoolsId = ?";
     connection.query(sqlGetAll, [SchoolId], (err, response) => {
         if(err) {
             console.log(err);

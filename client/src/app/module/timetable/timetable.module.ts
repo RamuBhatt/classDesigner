@@ -47,7 +47,7 @@ const routes: Routes = [
     MatTableModule,
     MatFormField,
     MatInputModule,
-    MatCardModule,
+    // MatCardModule,
     MatDatepickerModule,
     MatSlideToggleModule,
     MatAutocompleteModule,
