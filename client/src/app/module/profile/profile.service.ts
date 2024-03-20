@@ -16,7 +16,7 @@ export class ProfileService {
   }
 
   saveStudent(data: Student) {
-    return this.http.post(environment.api + AppRoute.getRoute(AppRoute.Profile, AppRoute.Student), data);
+    return this.http.put(environment.api + AppRoute.getRoute(AppRoute.Profile, AppRoute.Student), data);
   }
 
   getFaculty(id: string) {

@@ -36,21 +36,11 @@ export class CreateTimetableComponent implements OnInit {
   getTimetable() {
     this.timetableService.get().subscribe({
       next: async (result: any) => {
-        this.AllTimetable = result.data
-        this.filterFromData()
+        this.AllTimetable = result.data;
+        result.map((t: any) => this.TableList.push(t.header));
       },
       error: (error) => console.log(error)
-    })
-  }
-
-  filterFromData() {
-    this.AllTimetable.filter(t => {
-      if (this.TableList.includes(t.Exam)) return false;
-      else {
-        this.TableList.push(t.Exam);
-        return true;
-      };
-    })
+    });
   }
 
   Submit() {

@@ -15,7 +15,7 @@ const createStudents = (req, res) => {
         const PId = guid.create().toString();
         const StudentId = guid.create().toString();
         const ParentsId = guid.create().toString();
-        const name = Math.floor() * 1000;
+        const name = Math.floor(Math.random()*90000) + 10000;
         const StuName = `STU${name}`;
         const StuPass = `STU${name}`;
         const ParName = `PAR${name}`;
@@ -23,14 +23,15 @@ const createStudents = (req, res) => {
 
         Users.push([SId, IsActive, StuRoleId, StuPass, SchoolId, StuName]);
         Users.push([PId, IsActive, ParRoleId, ParPass, SchoolId, ParName]);
-        Students.push([StandardId, Id, StudentId]);
-        Parents.push([StudentId, SchoolId, ParentsId, IsActive]);
+        Students.push([StandardId, SId, StudentId]);
+        Parents.push([StudentId, SchoolId, ParentsId]);
     }
 
     const sqlInsertUsers = "INSERT INTO users (Id, IsActive,RoleID, Password, SchoolId, UserName) VALUES ?";
     connection.query(sqlInsertUsers, [Users], (err, result) => {
         if (err) {
             res.send(false);
+            console.log(err)
             return;
         }
         console.log("User Success");
@@ -43,18 +44,18 @@ const createStudents = (req, res) => {
             return;
         }
         console.log("Student Success");
-        res.send({ IsSucess: true });
+        // res.send({ IsSucess: true });
     });
 
-    const sqlInsertParents = "INSERT INTO parents (StudentId, SchoolId, Id, IsActive) VALUES ?";
+    const sqlInsertParents = "INSERT INTO parents (StudentId, SchoolId, Id) VALUES ?";
     connection.query(sqlInsertParents, [Parents], (err, result) => {
         if(err) {
             res.send(false);
             return;
         }
         console.log("Parents Suuccess");
-        res.send({IsSucess: true});
     });
+    res.send({IsSucess: true});
 }
 
 const createFaculty = () => {

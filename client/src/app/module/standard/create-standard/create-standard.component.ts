@@ -38,6 +38,8 @@ export class CreateStandardComponent {
       next: (data) => {
         console.log(data);
         this.refresh.emit();
+        this.isEditing = false;
+        this.Class.reset();
       },
       error: (data) => {
         console.log(data);
