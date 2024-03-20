@@ -14,10 +14,17 @@ form {
   grid-area: 2/1/3/3;
 }
 
-.primery-btn{
-    justify-self: start;
+.primery-btn {
+  justify-self: start;
+  /* display: flex; */
 }
 
-.isActive{
-    justify-self: end;
+.isActive {
+  justify-self: end;
+}
+
+.mat-mdc-progress-spinner {
+  max-width: 1.4em;
+  max-height: 1.4em;
+  transition: all 1s ease-in-out;
 }

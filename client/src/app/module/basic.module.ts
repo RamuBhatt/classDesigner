@@ -35,7 +35,11 @@ const routes: Routes = [
     path: AppRoute.Subject,
     loadChildren: () => import('./subject/subject.module').then(m => m.SubjectModule)
   },
-
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: AppRoute.Dashboard
+  }
 ]
 
 @NgModule({

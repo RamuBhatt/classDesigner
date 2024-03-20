@@ -17,7 +17,7 @@ export class TimetableService {
   }
 
   create(data: Timetable): Observable<Object> {
-    return this.http.post(environment.api + AppRoute.TimeTable, data)
+    return this.http.post(environment.api + AppRoute.TimeTable , data)
   }
 
 }

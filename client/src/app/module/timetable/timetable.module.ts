@@ -15,7 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatCardModule } from '@angular/material/card';
+import { ProgressSpinnerMode, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -47,10 +47,10 @@ const routes: Routes = [
     MatTableModule,
     MatFormField,
     MatInputModule,
-    // MatCardModule,
     MatDatepickerModule,
     MatSlideToggleModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule
   ],
   providers: [provideNativeDateAdapter()]
 })

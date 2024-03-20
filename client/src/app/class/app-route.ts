@@ -10,6 +10,7 @@ export class AppRoute {
     static Subject: string = 'subject';
     static Faculty: string = 'faculty';
     static Student: string = 'student';
+    static School: string = 'school';
 
     static Add: string = 'add';
     static All: string = 'all';

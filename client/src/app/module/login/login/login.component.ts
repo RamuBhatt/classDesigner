@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         next: (data: any) => {
           if (data.IsSuccess) {
             this.userService.setToken(data.Model)
-            this.router.navigate(['']);
+            this.router.navigate([AppRoute.Profile]);
           }
         },
         error: (e) => {

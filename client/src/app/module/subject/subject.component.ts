@@ -15,6 +15,7 @@ export class SubjectComponent {
 
   role: Users;
   Id: string | null;
+  canAccess!: boolean;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   Standards = [
@@ -36,6 +37,15 @@ export class SubjectComponent {
     this.Id = url.snapshot.paramMap.get('id');
     this.role = userService.getRole();
   }
+
+  ngOnInit(): void {
+    this.checkRole();
+  }
+
+  checkRole() {
+    this.canAccess = this.userService.getRole() == (Users.Admin || Users.Faculty)
+  }
+
 
   // save(subject: Subject) {
   save(subject: any) {

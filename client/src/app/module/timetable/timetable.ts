@@ -32,7 +32,7 @@ export class Timetable extends BaseClass {
             Subject: new FormControl(''),
             TimeFrom: new FormControl(''),
             TimeTo: new FormControl(''),
-            IsActive: new FormControl(false)
+            IsActive: new FormControl(true)
         }
     }
 

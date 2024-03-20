@@ -13,11 +13,13 @@ export class ListUsersComponent {
   constructor(private route: Router) { }
 
   openProfile() {
+    
     const route = AppRoute.getRoute(
       AppRoute.Profile,
-      this.user.SubjectId ? AppRoute.Faculty : AppRoute.Student,
-      this.user.id
-    )
+      AppRoute.Student,
+      this.user.Id
+      )
+      console.log(route);
 
     this.route.navigate([route]);
   }

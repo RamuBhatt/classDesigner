@@ -21,9 +21,6 @@ export class SidebarComponent {
     private router: Router,
     private url: ActivatedRoute,
     private userService: UserService) {
-    
-    console.log(router);
-    
     this.userRole = userService.getRole();
   }
 

@@ -19,6 +19,7 @@ export class CreateTimetableComponent implements OnInit {
     // { header: 'Final Exams', data: this.DataSource },
   ];
   AllTimetable!: Timetable[];
+  isLoading!: boolean;
 
 
   constructor(
@@ -53,6 +54,7 @@ export class CreateTimetableComponent implements OnInit {
   }
 
   Submit() {
+    this.isLoading = true;
     this.timetable.form.get('Id')?.setValue(Guid.create().toString())
     let date = moment(this.timetable.form.get('Date')?.value).format('YYYY-MM-DD hh:mm:ss').toString();
     this.timetable.form.get('Date')?.setValue(date);
@@ -60,7 +62,7 @@ export class CreateTimetableComponent implements OnInit {
     this.timetableService.create(this.timetable.form.value).subscribe({
       next: (data: any) => {
         if (data.IsSuccess) {
-
+          this.isLoading = false
         }
       },
       error: (e) => console.log(e?.mesaage)

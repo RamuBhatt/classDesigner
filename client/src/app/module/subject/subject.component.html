@@ -12,7 +12,7 @@
         <div class="box f-100">
             <mat-accordion>
                 <ng-container *ngFor="let subject of Subjects">
-                    <mat-expansion-panel>
+                    <mat-expansion-panel [disabled]="!canAccess">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <i class="bi bi-journals"></i> &nbsp; {{subject.Name}}

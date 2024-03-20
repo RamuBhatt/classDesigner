@@ -4,11 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AppController } from '../class/app-controller';
 import { User } from '../interface/user';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  jwtDecode = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
@@ -26,15 +29,20 @@ export class UserService {
   }
 
   getRole(): number {
-    return Users.Admin;
+    let role = this.jwtDecode.decodeToken(this.getToken()!.toString()).user.RoleId;
+    return Number(role);
+  }
+
+  getId(): string {
+    return this.jwtDecode.decodeToken(this.getToken()!.toString()).user.Id;
   }
 
   getName(): string {
-    return 'Kushagra Gangwal'
+    return this.jwtDecode.decodeToken(this.getToken()!.toString()).user.UserName;
   }
 
   getSchoolId(): string {
-    return '91bb3845-af93-aef7-32bd-062425ff16e6';
+    return this.jwtDecode.decodeToken(this.getToken()!.toString()).user.SchoolId;
   }
 
   getStandardId(): string {
