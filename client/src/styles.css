@@ -2,6 +2,8 @@
 
 html,
 body {
+  /* scrollbar-gutter: stable; */
+  scroll-behavior: smooth;
   height: 100%;
 }
 body {
@@ -43,7 +45,6 @@ li {
 .bg-s {
   background-color: transparent;
 }
-
 
 /* page layout start */
 .page {
@@ -89,7 +90,6 @@ li {
   font-weight: 300;
 }
 /* page layout end */
-
 
 /* flex sizeing helpers */
 .f-100 {

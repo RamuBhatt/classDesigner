@@ -5,6 +5,7 @@ export class AppController {
     static Users: string = 'users';
 
     static Count: string = ':count';
+    static Id: string = ':id';
     static Add: string = 'add';
     static All: string = 'all';
 

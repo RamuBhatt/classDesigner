@@ -9,6 +9,12 @@ export const App = [
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student]
     },
     {
+        menu: AppRoute.Standard,
+        url: AppRoute.Standard,
+        roles: [Users.Admin, Users.Faculty],
+        isActive: false,
+    },
+    {
         menu: AppRoute.TimeTable,
         url: AppRoute.getRoute(AppRoute.TimeTable),
         isActive: false,
@@ -29,12 +35,6 @@ export const App = [
             url: AppRoute.getRoute(AppRoute.Attendance, AppRoute.Add),
             roles: [Users.Admin, Users.Faculty]
         }]
-    },
-    {
-        menu: AppRoute.Standard,
-        url: AppRoute.Standard,
-        roles: [Users.Admin, Users.Faculty],
-        isActive: false,
     },
     {
         menu: AppRoute.Profile,

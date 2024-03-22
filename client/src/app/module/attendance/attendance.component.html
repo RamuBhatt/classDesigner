@@ -20,7 +20,7 @@
                 Today's Attendance <span class="small-title">{{currentDate|date:'EEEE, MMM d, y'}}</span>
             </div>
             <div class="box-body">
-                <mat-selection-list #SelcetedStudents (selectionChange)="update(SelcetedStudents)">
+                <mat-selection-list #SelcetedStudents [color]="'primary'" (selectionChange)="update(SelcetedStudents)">
                     <ul>
                         <li *ngFor="let student of Students">
                             <mat-list-option [selected]="student.status" [value]="student.roll">

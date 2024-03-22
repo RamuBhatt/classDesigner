@@ -17,14 +17,14 @@ app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use("/api",
-signupRouter,
-usersRouter,
-adminRouter,
-studentRouter,
-standardRouter,
-timeTableRouter,
-loginRouter,
-schoolRouter
+    signupRouter,
+    usersRouter,
+    adminRouter,
+    studentRouter,
+    standardRouter,
+    timeTableRouter,
+    loginRouter,
+    schoolRouter
 );
 
 // app.use("/api", require("./Routes/adminRoutes"));

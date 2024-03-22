@@ -22,3 +22,7 @@ i.action {
 .mat-expansion-panel-body {
     padding: 0 32px 0;
 }
+
+.mat-expansion-panel-header[aria-disabled=true] {
+    color: black
+}

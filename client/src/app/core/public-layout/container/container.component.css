@@ -1,22 +1,22 @@
-
-header{
-    height: 5rem;
-    border-bottom: 1px solid rgb(194, 194, 194);
+header {
+  height: 5rem;
+  border-bottom: 1px solid rgb(194, 194, 194);
 }
 
-main{
-    display: grid;
-    min-height: calc(100dvh - 5rem - 1px);
-    grid-template-columns: 30% 1fr;
+main {
+  display: grid;
+  min-height: calc(100dvh - 5rem - 1px);
+  grid-template-columns: clamp(15rem, 20rem, 30%) 1fr;
 }
 
-aside{
-    border-right: 1px solid rgb(194, 194, 194);
-    background-color: rgb(237, 237, 237);
-    display: flex;
-    justify-content: flex-end;
+aside {
+  border-right: 1px solid rgb(194, 194, 194);
+  background-color: rgb(237, 237, 237);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
-section{
-    background-color: rgb(237, 237, 237);
+section {
+  background-color: rgb(237, 237, 237);
 }

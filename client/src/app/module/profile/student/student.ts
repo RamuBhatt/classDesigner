@@ -39,9 +39,9 @@ export class Student {
             Phone: new FormControl(''),
             Gender: new FormControl(''),
             Address: new FormControl(''),
-            Division: new FormControl({ value: '', disabled: true }),
+            Division: new FormControl({ value: 'A', disabled: true }),
             Medium: new FormControl(''),
-            RollNumber: new FormControl({ value: '', disabled: true }),
+            RollNumber: new FormControl({ value: '221007', disabled: true }),
             StandardId: new FormControl({ value: '', disabled: true }),
         }
     }

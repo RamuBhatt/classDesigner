@@ -30,7 +30,8 @@ export class UserService {
 
   getRole(): number {
     let role = this.jwtDecode.decodeToken(this.getToken()!.toString()).user.RoleId;
-    return Number(role);
+    // return Number(role);
+    return Users.Student
   }
 
   getId(): string {
