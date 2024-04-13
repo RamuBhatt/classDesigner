@@ -1,0 +1,41 @@
+.header {
+  height: 100%;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+h2 span {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: black;
+  text-transform: capitalize;
+}
+
+.user {
+  text-transform: capitalize;
+  scale: 1.2;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.user:active {
+  scale: 95%;
+}
+
+p:hover .user {
+    scale:2;
+    translate: 0 -10px;
+}
+
+.primery-btn {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 50%;
+}

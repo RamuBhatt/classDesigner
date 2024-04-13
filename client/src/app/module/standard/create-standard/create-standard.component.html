@@ -1,0 +1,20 @@
+<article class="box" [class.editing]="isEditing" (click)=" edit()">
+    <div class="icon" *ngIf="!isEditing">
+        <ng-icon name="bootstrapPlus"></ng-icon>
+    </div>
+    <p *ngIf="!isEditing">CLASS</p>
+
+    <div *ngIf="isEditing">
+        <form [formGroup]="Class" (ngSubmit)="submit()">
+            <mat-form-field class="input" appearance="outline">
+                <mat-label>Class</mat-label>
+                <input matInput formControlName="Name" type="text">
+            </mat-form-field>
+            <mat-form-field class="input" appearance="outline">
+                <mat-label>Division</mat-label>
+                <input matInput formControlName="Division" type="text">
+            </mat-form-field>
+            <button type="submit" class="primery-btn">Add</button>
+        </form>
+    </div>
+</article>

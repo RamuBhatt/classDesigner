@@ -1,0 +1,38 @@
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.primery-btn {
+  z-index: 2;
+}
+
+.card .icon {
+  padding: 4rem;
+  z-index: 1;
+  display: flex;
+  scale: 3;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  justify-content: center;
+}
+
+.card:hover .icon {
+  translate: 0 -5px;
+  cursor: pointer;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+.primery-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card:active {
+  scale: 95%;
+}

@@ -1,0 +1,15 @@
+<section class="enrollment">
+    <mat-form-field appearance="outline">
+        <mat-label>Select User</mat-label>
+        <mat-select #selectUser>
+            <mat-option>None</mat-option>
+            <mat-option [value]="Users.Faculty">Staff Faculty</mat-option>
+            <mat-option [value]="Users.Student">Student</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Ketla banava che?</mat-label>
+        <input matInput #setCount />
+    </mat-form-field>
+    <button class="primery-btn" (click)="generate(selectUser.value,setCount.value)">Generate</button>
+</section>

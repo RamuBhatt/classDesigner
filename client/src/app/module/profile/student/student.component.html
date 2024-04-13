@@ -1,0 +1,79 @@
+<section class="page">
+    <div class="page-header">
+        <div class="page-title" *ngIf="!canAccess">Your Profile</div>
+        <div class="page-title" *ngIf="canAccess">Student's Profile</div>
+    </div>
+    <div class="page-body">
+
+        <ng-container *ngIf="!isEditing">
+            <div class="box">
+                <div class="box-title">Kushagra Gangwal</div>
+            </div>
+            <div class="box">
+                221SBEIT30007
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="isEditing">
+            <form id="student-profile-form" class="box f-100 edit" name="create-student" (ngSubmit)="save()"
+                [formGroup]="student.form">
+
+                <mat-form-field class="subject" appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="FirstName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="LastName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Roll Number</mat-label>
+                    <input matInput formControlName="RollNumber">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Division</mat-label>
+                    <input matInput formControlName="Division">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Standard</mat-label>
+                    <input matInput formControlName="StandardId">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="Phone">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input matInput formControlName="Gender">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="Address">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Medium</mat-label>
+                    <input matInput formControlName="Medium">
+                </mat-form-field>
+
+                <button class="primery-btn">
+                    {{!isLoading ? 'Save': ''}}
+                    <mat-spinner *ngIf="isLoading"></mat-spinner>
+                </button>
+            </form>
+        </ng-container>
+
+    </div>
+</section>

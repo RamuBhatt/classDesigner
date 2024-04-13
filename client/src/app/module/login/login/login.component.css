@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+
+.login-form-container{
+    background-color:ghostwhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.form-container{
+    background-color: white;
+    min-width: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-container .header{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #234c76;
+}
+
+.form-container .form-field{
+    margin-bottom: 10px;
+}
+
+.form-container .submit-button{
+    margin-top: 10px;
+    font-size: 20px;
+    padding-block: 10px;
+    background-color: #234c76;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

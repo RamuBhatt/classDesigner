@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  /* scrollbar-gutter: stable; */
+  scroll-behavior: smooth;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+ul,
+li {
+  list-style: none;
+}
+:root {
+  --primery-color: #234567;
+}
+
+/* global component css */
+.primery-btn {
+  all: unset;
+  padding: 10px 16px;
+  height: fit-content;
+  background-color: #b1dae7;
+  color: var(--primery-color);
+  font-weight: 700;
+  border-radius: 22px;
+  transition: all 0.2s ease;
+}
+.primery-btn:hover {
+  cursor: pointer;
+}
+.primery-btn:active {
+  transform: scale(0.95);
+}
+
+.bg-s {
+  background-color: transparent;
+}
+
+/* page layout start */
+.page {
+  padding: 1rem;
+  max-width: 80%;
+}
+
+.page-header {
+  padding: 0 1rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.page-body {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: baseline;
+  gap: 1rem;
+}
+
+.box {
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  border-radius: 1.1rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.box-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.box-body {
+}
+
+.small-title {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 300;
+}
+/* page layout end */
+
+/* flex sizeing helpers */
+.f-100 {
+  flex-basis: 100%;
+}
+.f-50 {
+  flex-basis: 50%;
+}
+.f-30 {
+  flex-basis: 30%;
+}
+.f-full {
+  flex-grow: 1;
+}
+/* flex end */
+
+/* material progress bar */
+
+.mat-mdc-progress-spinner {
+  max-width: 1.4em;
+  max-height: 1.4em;
+  transition: all 1s ease-in-out;
+}
+
+/* material progress bar */

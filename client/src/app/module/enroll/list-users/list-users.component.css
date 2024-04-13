@@ -1,0 +1,25 @@
+li {
+  padding: 0.8rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+
+li i {
+  scale: 1.3;
+}
+
+li i.action {
+  scale: 1.3;
+  transform-origin: left bottom;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+li i.action:hover {
+    scale: 1.8;
+    cursor: pointer;
+}
+
+li i.action:active {
+    scale: 160%;
+}

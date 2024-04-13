@@ -1,0 +1,99 @@
+.app-sidebar {
+  /* padding: 1rem; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+ul {
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+li {
+  transition: all 0.4s ease-in-out;
+}
+
+li div ul {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.cta {
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.icon{
+  scale: 1.6;
+
+}
+
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #b1dae7;
+  opacity: 0;
+  width: 0;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.cta span {
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #234567;
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.active:before {
+  opacity: 1;
+  width: 100%;
+  background-color: white;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.subapp span {
+  padding-left: 1rem;
+  color: #4c759f;
+}
+
+.cta:active {
+  transform: scale(0.95);
+}
+
+.active:before {
+  width: 100%;
+  background-color: #b1dae7;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; translate: 0 -10px; }
+  100% { opacity: 1; translate: 0;}
+}

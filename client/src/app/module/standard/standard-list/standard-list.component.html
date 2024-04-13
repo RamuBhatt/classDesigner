@@ -1,0 +1,7 @@
+<div class="class-container f-100">
+    <div class="list-class" *ngFor="let class of Standards">
+        <app-standard-card [class]="class"></app-standard-card>
+    </div>
+
+    <app-create-standard (refresh)="getStandards()" *ngIf="role == 0"></app-create-standard>
+</div>

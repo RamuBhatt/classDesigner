@@ -1,0 +1,8 @@
+.enrollment {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  align-items: baseline;
+}
+

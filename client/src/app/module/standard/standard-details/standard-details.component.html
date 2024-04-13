@@ -1,0 +1,110 @@
+<section class="page">
+    <div class="page-body">
+        <!-- subject Card -->
+        <div class="box card">
+            <div class="icon">
+                <i class="bi bi-journals"></i>
+            </div>
+            <button class="primery-btn" (click)="goToSubject()">Subjects</button>
+        </div>
+        <!-- subject card end -->
+        <!-- subject Card -->
+        <div class="box card">
+            <div class="icon">
+                <i class="bi bi-calendar2-date"></i>
+            </div>
+            <button class="primery-btn" (click)="goToTimeTable()">Exams</button>
+        </div>
+        <!-- subject card end -->
+
+        <div class="f-100"></div>
+
+        <!-- Enroll User -->
+        <div class="box-title"><i class="bi bi-person-plus"></i> &nbsp; Add users</div>
+        <div class="box f-100">
+            <div class="box-body">
+                <app-enroll [standardId]="standardId" [schoolId]="schoolId"></app-enroll>
+            </div>
+        </div>
+        <!-- Enroll User -->
+
+        <div class="f-100"></div>
+
+        <div class="box-title"><i class="bi bi-clipboard-x"></i> &nbsp; Not Assigned Yet </div>
+        <div class="box f-100">
+            <div class="box-body">
+                <mat-accordion>
+                    <!-- Faculty -->
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Faculty
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!unFaculty">No Users</p>
+                            <ng-container *ngFor="let user of unFaculty">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
+                    </mat-expansion-panel>
+
+                    <mat-divider></mat-divider>
+
+                    <!-- Student -->
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Students
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!unStudents">No Users</p>
+                            <ng-container *ngFor="let user of unStudents">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+        <div class="f-100">
+        </div>
+        <div class="box-title"><i class="bi bi-clipboard-check"></i> &nbsp; All Users </div>
+        <div class="box f-100">
+            <div class="box-body">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Faculty
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!acFaculty">No Users</p>
+                            <ng-container *ngFor="let user of acFaculty">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
+                    </mat-expansion-panel>
+
+                    <mat-divider></mat-divider>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Students
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!acStudents">No Users</p>
+                            <ng-container *ngFor="let user of acStudents">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+</section>

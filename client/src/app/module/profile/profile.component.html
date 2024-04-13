@@ -1,0 +1,18 @@
+<section>
+    <ng-container *ngIf="role == Users.Student">
+        <app-student></app-student>
+    </ng-container>
+
+    <ng-container *ngIf="role == Users.Faculty">
+        <app-faculty></app-faculty>
+    </ng-container>
+
+    <ng-container *ngIf="role == Users.Parents">
+        <app-student></app-student>
+    </ng-container>
+
+    <ng-container *ngIf="role == Users.Admin">
+        <app-school></app-school>
+    </ng-container>
+
+</section>

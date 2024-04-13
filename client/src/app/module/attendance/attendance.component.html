@@ -1,0 +1,49 @@
+<section class="page">
+    <div class="page-header">
+        <div class="page-title">Attendance</div>
+    </div>
+    <div class="page-body">
+        <div class="box">
+            <div class="box-title">
+                <p>Attendance Summery <span class="small-title">40 Students</span> </p>
+            </div>
+            <div class="box-body"></div>
+        </div>
+        <div class="box">
+            <p>Hindi</p>
+        </div>
+        <div class="box">
+            <p>8th Standard</p>
+        </div>
+        <div class="box f-100">
+            <div class="box-title">
+                Today's Attendance <span class="small-title">{{currentDate|date:'EEEE, MMM d, y'}}</span>
+            </div>
+            <div class="box-body">
+                <mat-selection-list #SelcetedStudents [color]="'primary'" (selectionChange)="update(SelcetedStudents)">
+                    <ul>
+                        <li *ngFor="let student of Students">
+                            <mat-list-option [selected]="student.status" [value]="student.roll">
+                                <span class="std-roll-list">
+                                    #{{student.roll}}
+                                </span>
+                                <span class="std-name-list">
+                                    {{student.name}}
+                                </span>
+                                <!-- <button>Open</button> -->
+                            </mat-list-option>
+                        </li>
+                    </ul>
+                </mat-selection-list>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-title" >
+                <p> {{SelcetedStudents.selectedOptions.selected.length}} Presents</p>
+            </div>
+        </div>
+        <button class="primery-btn bg-s" (click)="SelcetedStudents.selectedOptions.clear()">Clear</button>
+        <button class="primery-btn">Save</button>
+
+    </div>
+</section>
