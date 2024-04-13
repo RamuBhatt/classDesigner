@@ -22,9 +22,3 @@ form {
 .isActive {
   justify-self: end;
 }
-
-.mat-mdc-progress-spinner {
-  max-width: 1.4em;
-  max-height: 1.4em;
-  transition: all 1s ease-in-out;
-}

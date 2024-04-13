@@ -46,7 +46,6 @@ export class StandardDetailsComponent implements OnInit {
         if (!data.IsSuccess) return;
 
         const users: User[] = data.Model;
-        console.log(users);
 
         this.unFaculty = users.filter(u => !u.IsActive && u.RoleId == Users.Faculty.toString());
         this.unStudents = users.filter(u => !u.IsActive && u.RoleId == Users.Student.toString());

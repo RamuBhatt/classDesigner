@@ -10,17 +10,17 @@ import { AppRoute } from '../../../class/app-route';
 export class ListUsersComponent {
   @Input() user!: any;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router) {
+    console.log(this.user);
+  }
 
   openProfile() {
-    
+
     const route = AppRoute.getRoute(
       AppRoute.Profile,
       AppRoute.Student,
       this.user.Id
-      )
-      console.log(route);
-
+    )
     this.route.navigate([route]);
   }
 }

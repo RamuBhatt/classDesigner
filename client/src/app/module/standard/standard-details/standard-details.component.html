@@ -41,8 +41,12 @@
                                 Faculty
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!unFaculty.length">No Users</p>
-                        <app-list-users *ngFor="let user of unFaculty" [user]="user"></app-list-users>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!unFaculty">No Users</p>
+                            <ng-container *ngFor="let user of unFaculty">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
                     </mat-expansion-panel>
 
                     <mat-divider></mat-divider>
@@ -54,8 +58,12 @@
                                 Students
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!unStudents.length">No Users</p>
-                        <app-list-users *ngFor="let user of unStudents" [user]="user"></app-list-users>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!unStudents">No Users</p>
+                            <ng-container *ngFor="let user of unStudents">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
@@ -72,8 +80,12 @@
                                 Faculty
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!acFaculty.length">No Users</p>
-                        <app-list-users *ngFor="let user of acFaculty" [user]="user"></app-list-users>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!acFaculty">No Users</p>
+                            <ng-container *ngFor="let user of acFaculty">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
                     </mat-expansion-panel>
 
                     <mat-divider></mat-divider>
@@ -84,8 +96,12 @@
                                 Students
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <p *ngIf="!acStudents.length">No Users</p>
-                        <app-list-users *ngFor="let user of acStudents" [user]="user"></app-list-users>
+                        <ng-template matExpansionPanelContent>
+                            <p *ngIf="!acStudents">No Users</p>
+                            <ng-container *ngFor="let user of acStudents">
+                                <app-list-users [user]="user"></app-list-users>
+                            </ng-container>
+                        </ng-template>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>

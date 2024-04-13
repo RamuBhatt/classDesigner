@@ -5,20 +5,21 @@
         <div class="f-30">
             <mat-select name="standard" [value]="'123'">
                 <mat-option>Select Class</mat-option>
-                <mat-option *ngFor="let class of Standards" [value]="class.id">{{class.name}}<sup>th</sup>
-                    Standard</mat-option>
+                <ng-container *ngFor="let class of Standards">
+                    <mat-option [value]="class.id">{{class.name}}<sup>th</sup>Standard</mat-option>
+                </ng-container>
             </mat-select>
         </div>
-        <div class="box f-100">
+        <div class="box f-50">
             <mat-accordion>
                 <ng-container *ngFor="let subject of Subjects">
-                    <mat-expansion-panel [disabled]="!canAccess">
+                    <mat-expansion-panel [disabled]="canAccess">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <i class="bi bi-journals"></i> &nbsp; {{subject.Name}}
                             </mat-panel-title>
                             <mat-panel-description>
-                                Teacher : {{subject.faculty.name | titlecase}}
+                                <i class="bi bi-person-gear"></i> &nbsp; {{subject.faculty.name | titlecase}}
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <div class="edit-container">
@@ -28,7 +29,9 @@
                                     <mat-option [value]="subject.faculty.id">{{subject.faculty.name}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
-                            <button class="primery-btn" (click)="save(subject)">Save</button>
+                            <button class="primery-btn" (click)="save(subject)">
+                                Save
+                            </button>
                         </div>
                     </mat-expansion-panel>
                     <!-- <mat-divider></mat-divider> -->

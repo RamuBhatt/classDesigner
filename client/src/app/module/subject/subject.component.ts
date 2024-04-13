@@ -14,7 +14,7 @@ import { Subject } from './subject';
 export class SubjectComponent {
 
   role: Users;
-  Id: string | null;
+  stdId: string | null;
   canAccess!: boolean;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
@@ -34,7 +34,7 @@ export class SubjectComponent {
     private userService: UserService,
     private subjectService: SubjectService,
   ) {
-    this.Id = url.snapshot.paramMap.get('id');
+    this.stdId = url.snapshot.paramMap.get('id');
     this.role = userService.getRole();
   }
 
@@ -46,10 +46,12 @@ export class SubjectComponent {
     this.canAccess = this.userService.getRole() == (Users.Admin || Users.Faculty)
   }
 
-
   // save(subject: Subject) {
   save(subject: any) {
-    this.subjectService.create(subject)
+    this.subjectService.create(subject, this.stdId!).subscribe({
+      next: (data) => { },
+      error: (err) => { console.error(err.message) }
+    })
   }
 
 }

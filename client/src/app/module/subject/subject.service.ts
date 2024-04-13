@@ -23,7 +23,11 @@ export class SubjectService {
     return this.http.get<Subject>(environment.api + AppRoute.Subject);
   }
 
-  create(data: Subject) {
-    return this.http.post<Subject>(environment.api + AppRoute.Subject, data);
+  create(data: Subject, id: string) {
+    return this.http.post<Subject>(environment.api + AppRoute.getRoute(AppRoute.Subject, id), data);
+  }
+
+  update(data: Subject) {
+    return this.http.put<Subject>(environment.api + AppRoute.Subject, data);
   }
 }
