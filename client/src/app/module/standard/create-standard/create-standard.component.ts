@@ -20,15 +20,17 @@ export class CreateStandardComponent {
   ) {
     this.Class = new FormGroup(
       {
-        Id: new FormControl(Guid.create().toString()),
+        Id: new FormControl(''),
         Name: new FormControl(''),
         Division: new FormControl(''),
-        SchoolId: new FormControl(userService.getSchoolId()),
+        SchoolId: new FormControl(''),
       }
     )
   }
 
   edit() {
+    this.Class.get('Id')?.setValue(Guid.create().toString());
+    this.Class.get('SchoolId')?.setValue(this.userService.getSchoolId());
     this.isEditing = true;
   }
 

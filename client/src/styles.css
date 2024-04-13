@@ -24,6 +24,7 @@ li {
   --primery-color: #234567;
 }
 
+/* MARK:Global 
 /* global component css */
 .primery-btn {
   all: unset;
@@ -46,10 +47,12 @@ li {
   background-color: transparent;
 }
 
-/* page layout start */
+/* MARK:PAGE 
+ * page layout start
+ */
 .page {
   padding: 1rem;
-  max-width: 80%;
+  width: 80%;
 }
 
 .page-header {
@@ -68,6 +71,8 @@ li {
   gap: 1rem;
 }
 
+/* MARK: Box 
+ */
 .box {
   padding: 1rem 1.5rem;
   width: fit-content;
@@ -91,7 +96,8 @@ li {
 }
 /* page layout end */
 
-/* flex sizeing helpers */
+/* MARK: Flex 
+   sizeing helpers */
 .f-100 {
   flex-basis: 100%;
 }
@@ -106,7 +112,8 @@ li {
 }
 /* flex end */
 
-/* material progress bar */
+/* MARK: Material 
+   progress bar */
 
 .mat-mdc-progress-spinner {
   max-width: 1.4em;
