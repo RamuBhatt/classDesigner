@@ -39,6 +39,6 @@ app.use("/api",
 // app.use("/api", require("./Routes/timeTableRoutes"));
 // app.use("/api", require("./Routes/userRouters"));
 
-app.listen(1000, () => {
-    console.log("Running on port 1000");
+app.listen(3306, () => {
+	console.log("Running on port 3306");
 });
