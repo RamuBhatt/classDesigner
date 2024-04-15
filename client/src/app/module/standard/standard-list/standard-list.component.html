@@ -1,7 +1,12 @@
 <div class="class-container f-100">
-    <div class="list-class" *ngFor="let class of Standards">
-        <app-standard-card [class]="class"></app-standard-card>
-    </div>
+    <ng-container *ngIf="isLoading; else show">
+        <mat-spinner></mat-spinner>
+    </ng-container>
+    <ng-template #show>
+        <div class="list-class" *ngFor="let class of Standards">
+            <app-standard-card [class]="class"></app-standard-card>
+        </div>
 
-    <app-create-standard (refresh)="getStandards()" *ngIf="role == 0"></app-create-standard>
+        <app-create-standard (refresh)="getStandards()" *ngIf="role == 0"></app-create-standard>
+    </ng-template>
 </div>

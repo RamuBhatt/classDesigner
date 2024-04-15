@@ -1,1 +1,56 @@
-<p>create-attendance works!</p>
+<section class="page">
+    <div class="page-header">
+        <div class="page-title">Punch Attendance</div>
+    </div>
+    <div class="page-body">
+        <div class="box">
+            <!-- <p>Hindi</p> -->
+            <mat-select name="standard">
+                <mat-option [disabled]="true">Select Class</mat-option>
+                <ng-container *ngFor="let class of Subjects">
+                    <mat-option [value]="class.id">{{class.name}}<sup>th</sup>Standard</mat-option>
+                </ng-container>
+            </mat-select>
+        </div>
+        <div class="box">
+            <p>8th Standard</p>
+        </div>
+        <div class="box-title f-100">
+            Today's Attendance <span class="small-title">{{currentDate|date:'EEEE, MMMM d, y'}}</span>
+        </div>
+        <div class="box f-100">
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+            <div class="box-body">
+                <!-- MARK: Student's List
+                 -->
+                <mat-selection-list #SelcetedStudents [color]="'primary'" (selectionChange)="update(SelcetedStudents)">
+                    <ul>
+                        <li *ngFor="let student of Students">
+                            <mat-list-option [selected]="student.Status" [value]="student.Id">
+                                <div class="list-container">
+                                    <p class="std-roll-list">
+                                        <i class="bi bi-person"></i> {{student.Id}}
+                                    </p>
+                                    <p class="std-name-list">
+                                        {{student.Name}}
+                                    </p>
+                                </div>
+                            </mat-list-option>
+                        </li>
+                    </ul>
+                </mat-selection-list>
+            </div>
+        </div>
+        <!-- MARK: Tracker
+                         -->
+        <div class="box">
+            <div class="box-title">
+                <p> {{SelcetedStudents.selectedOptions.selected.length}} Presents</p>
+            </div>
+        </div>
+        <!-- MARK: Action
+         -->
+        <button class="primery-btn bg-s" (click)="SelcetedStudents.selectedOptions.clear()">Clear</button>
+        <button class="primery-btn" (click)="submit()">Save </button>
+    </div>
+</section>

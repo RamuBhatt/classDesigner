@@ -47,8 +47,14 @@ export class UserService {
   }
 
   getStandardId(): string {
-    if (this.getRole() == Users.Student)
-      return '91bb3845-af93-aef7-32bd-062425ff16e6';
+    if (this.getRole() != Users.Admin)
+      this.jwtDecode.decodeToken(this.getToken()!.toString()).user.StandardId;
+    return '';
+  }
+
+  getSubjectId(): string {
+    if (this.getRole() == Users.Faculty)
+      this.jwtDecode.decodeToken(this.getToken()!.toString()).user.SubjectId;
     return '';
   }
 

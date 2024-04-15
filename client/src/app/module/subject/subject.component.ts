@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatAccordion } from '@angular/material/expansion';
 import { SubjectService } from './subject.service';
 import { Subject } from './subject';
+import { AdminService } from '../../service/admin.service';
 
 @Component({
   selector: 'app-subject',
@@ -16,6 +17,7 @@ export class SubjectComponent {
   role: Users;
   stdId: string | null;
   canAccess!: boolean;
+  faculty: any;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   Standards = [
@@ -33,6 +35,7 @@ export class SubjectComponent {
     private url: ActivatedRoute,
     private userService: UserService,
     private subjectService: SubjectService,
+    private adminService: AdminService,
   ) {
     this.stdId = url.snapshot.paramMap.get('id');
     this.role = userService.getRole();
@@ -40,13 +43,36 @@ export class SubjectComponent {
 
   ngOnInit(): void {
     this.checkRole();
+    this.getFaculty();
+    this.getSubjects();
+    this.getStandards();
+  }
+
+  getSubjects() {
+    this.subjectService.get().subscribe({
+      next: (data: any) => { this.Subjects = data.Model },
+      error: (err) => { console.error(err.message) }
+    })
+  }
+
+  getStandards() {
+    this.adminService.getStandard().subscribe({
+      next: (data: any) => { this.Standards = data.Model },
+      error: (err) => { console.error(err.message) }
+    })
   }
 
   checkRole() {
     this.canAccess = this.userService.getRole() == (Users.Admin || Users.Faculty)
   }
 
-  // save(subject: Subject) {
+  getFaculty() {
+    this.adminService.getFaculty().subscribe({
+      next: (data: any) => { this.faculty = data.Model },
+      error: (err) => { console.error(err.message) }
+    })
+  }
+
   save(subject: any) {
     this.subjectService.create(subject, this.stdId!).subscribe({
       next: (data) => { },

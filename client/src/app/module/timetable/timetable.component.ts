@@ -17,6 +17,7 @@ export class TimetableComponent implements OnInit {
   AllTimetable!: Timetable[];
   TableList: any = []
   date: Date = new Date();
+  isLoading: boolean = true;
   TableColumns: string[] = ['Index', 'Date', 'Day', 'Time', 'Subject']
   TableDataFromAPI: any = [
     // { header: 'Mid Terms', data: this.DataSource },
@@ -31,6 +32,7 @@ export class TimetableComponent implements OnInit {
   ngOnInit(): void {
     this.checkRole();
     this.getTimetable();
+    console.log(window);
   }
 
   checkRole() {
@@ -44,7 +46,8 @@ export class TimetableComponent implements OnInit {
   getTimetable() {
     this.timetableService.get().subscribe({
       next: async (result: any) => {
-        this.TableDataFromAPI = result
+        this.isLoading = false; 
+        this.TableDataFromAPI = result;
       },
       error: (error) => console.log(error)
     })

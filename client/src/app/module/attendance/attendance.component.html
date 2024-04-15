@@ -15,35 +15,25 @@
         <div class="box">
             <p>8th Standard</p>
         </div>
-        <div class="box f-100">
-            <div class="box-title">
-                Today's Attendance <span class="small-title">{{currentDate|date:'EEEE, MMM d, y'}}</span>
-            </div>
+        <div class="f-100">
+            <mat-divider></mat-divider>
+        </div>
+        <div class="box f-50">
+            <div class="box-title"><i class="bi bi-arrow-down-right"></i> &nbsp; Less Attendance Students</div>
             <div class="box-body">
-                <mat-selection-list #SelcetedStudents [color]="'primary'" (selectionChange)="update(SelcetedStudents)">
-                    <ul>
-                        <li *ngFor="let student of Students">
-                            <mat-list-option [selected]="student.status" [value]="student.roll">
-                                <span class="std-roll-list">
-                                    #{{student.roll}}
-                                </span>
-                                <span class="std-name-list">
-                                    {{student.name}}
-                                </span>
-                                <!-- <button>Open</button> -->
-                            </mat-list-option>
-                        </li>
-                    </ul>
-                </mat-selection-list>
+                <mat-list class="less-att-list">
+                    <mat-list-item *ngFor="let student of Students">
+                        <i class="bi list-icon bi-person-exclamation" matListItemIcon></i>
+                        <div matListItemTitle class="less-att-list">{{student.name}}  &nbsp;&nbsp;&nbsp;&nbsp; #{{student.roll}}</div>
+                        <!-- <div matListItemLine class="less-att-list">#{{student.roll}}</div> -->
+                    </mat-list-item>
+                </mat-list>
             </div>
         </div>
-        <div class="box">
-            <div class="box-title" >
-                <p> {{SelcetedStudents.selectedOptions.selected.length}} Presents</p>
+        <div class="box f-30">
+            <div class="box-title">
+               What u doin?
             </div>
         </div>
-        <button class="primery-btn bg-s" (click)="SelcetedStudents.selectedOptions.clear()">Clear</button>
-        <button class="primery-btn">Save</button>
-
     </div>
 </section>

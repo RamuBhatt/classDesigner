@@ -19,7 +19,7 @@ export class SubjectService {
     return this.http.get<Faculty>(environment.api + AppRoute.Faculty);
   }
 
-  getSubject() {
+  get() {
     return this.http.get<Subject>(environment.api + AppRoute.Subject);
   }
 

@@ -59,6 +59,7 @@ export class StandardDetailsComponent implements OnInit {
   goToSubject() {
     this.router.navigate([AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject, this.standardId!)])
   }
+  
   goToTimeTable() {
     this.router.navigate([AppRoute.TimeTable])
   }

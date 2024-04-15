@@ -1,0 +1,18 @@
+.std-roll-list {
+  min-width: 20%;
+}
+.std-name-list {
+  /* margin-left: 1rem; */
+  text-transform: capitalize;
+  color: #777;
+}
+
+.list-container{
+    display: flex;
+    justify-content: start;
+    column-gap: 1rem;
+}
+
+.box.f-100{
+    min-height: 10rem;
+}

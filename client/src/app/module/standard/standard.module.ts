@@ -17,6 +17,7 @@ import { SubjectComponent } from '../subject/subject.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const routes: Routes = [
   { path: '', component: StandardComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     SubjectModule
   ]

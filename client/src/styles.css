@@ -64,6 +64,7 @@ li {
 
 .page-body {
   padding: 1rem;
+  padding-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -106,6 +107,7 @@ li {
 }
 .f-30 {
   flex-basis: 30%;
+  align-self: stretch;
 }
 .f-full {
   flex-grow: 1;

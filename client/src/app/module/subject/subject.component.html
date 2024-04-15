@@ -3,14 +3,14 @@
         <div class="box-title f-30">All Subjects</div>
         <div class="f-30"></div>
         <div class="f-30">
-            <mat-select name="standard" [value]="'123'">
-                <mat-option>Select Class</mat-option>
+            <mat-select name="standard">
+                <mat-option [disabled]="true">Select Class</mat-option>
                 <ng-container *ngFor="let class of Standards">
                     <mat-option [value]="class.id">{{class.name}}<sup>th</sup>Standard</mat-option>
                 </ng-container>
             </mat-select>
         </div>
-        <div class="box f-50">
+        <div class="box f-100">
             <mat-accordion>
                 <ng-container *ngFor="let subject of Subjects">
                     <mat-expansion-panel [disabled]="canAccess">
@@ -25,8 +25,8 @@
                         <div class="edit-container">
                             <mat-form-field class="select" appearance="outline">
                                 <mat-label>Select Teacher</mat-label>
-                                <mat-select formControlName="FacultyId">
-                                    <mat-option [value]="subject.faculty.id">{{subject.faculty.name}}</mat-option>
+                                <mat-select [(value)]="subject.faculty.id">
+                                    <mat-option *ngFor="let f of faculty" [value]="faculty.Id">{{f.Name}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                             <button class="primery-btn" (click)="save(subject)">

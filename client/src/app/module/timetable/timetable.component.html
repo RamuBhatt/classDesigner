@@ -3,7 +3,8 @@
         <div class="page-title">Time Table <span>{{date|date:'EEE MMMM d, y'}}</span></div>
     </div>
     <div class="page-body">
-        <div class="time box">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <div class="time box" *ngIf="!isLoading">
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" dynamicHeight>
                 <mat-tab *ngFor="let Table of TableDataFromAPI" label="{{Table.header}}">
                     <div class="table-content">

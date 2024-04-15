@@ -11,16 +11,17 @@ import { StandardService } from '../standard.service';
 export class StandardListComponent {
   @Input() role!: Users;
   Standards!: IStandard[];
+  isLoading: boolean = true;
 
   constructor(private standardService: StandardService) { }
 
   ngOnInit(): void {
     this.getStandards();
   }
-  
+
   getStandards() {
     this.standardService.get().subscribe({
-      next: (data: any) => { this.Standards = data.Model },
+      next: (data: any) => { this.isLoading = false; this.Standards = data.Model },
       error: (e) => console.log(e)
     })
   }
