@@ -38,12 +38,12 @@ export class StudentComponent implements OnInit {
   }
 
   checkRole() {
-    if (this.userService.getRole() == Users.Admin || Users.Faculty) {
+    if (this.userService.getRole() == (Users.Admin || Users.Faculty)) {
       this.student.form.get('RollNumber')?.enable();
       this.student.form.get('Division')?.enable();
       this.student.form.get('StandardId')?.enable();
     }
-    if (this.userService.getRole() == Users.Student || Users.Parents) {
+    if (this.userService.getRole() == (Users.Student || Users.Parents)) {
       this.student.form.get('RollNumber')?.disable();
       this.student.form.get('Division')?.disable();
       this.student.form.get('StandardId')?.disable();
@@ -54,8 +54,6 @@ export class StudentComponent implements OnInit {
     this.isEditing = true;
     this.student = new Student(this.formBuilder);
     this.student.createForm();
-    console.log(this.student.form);
-
     this.getStudent();
   }
 
