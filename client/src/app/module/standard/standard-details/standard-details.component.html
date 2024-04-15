@@ -23,7 +23,7 @@
         <div class="box-title"><i class="bi bi-person-plus"></i> &nbsp; Add Users</div>
         <div class="box f-100">
             <div class="box-body">
-                <app-enroll [standardId]="standardId" [schoolId]="schoolId"></app-enroll>
+                <app-enroll (refresh)="getUsers()" [standardId]="standardId" [schoolId]="schoolId"></app-enroll>
             </div>
         </div>
         <!-- Enroll User -->
@@ -38,11 +38,11 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Faculty
+                                <i class="bi bi-person-slash"></i>&nbsp; {{unFaculty.length}} &nbsp;&nbsp;&nbsp; Faculty
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent>
-                            <p *ngIf="!unFaculty">No Users</p>
+                            <p *ngIf="!unFaculty.length">No Users</p>
                             <ng-container *ngFor="let user of unFaculty">
                                 <app-list-users [user]="user"></app-list-users>
                             </ng-container>
@@ -55,11 +55,12 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                             <mat-panel-title>
+                                <i class="bi bi-person-slash"></i>&nbsp; {{unStudents.length}} &nbsp;&nbsp;&nbsp;
                                 Students
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent>
-                            <p *ngIf="!unStudents">No Users</p>
+                            <p *ngIf="!unStudents.length">No Users</p>
                             <ng-container *ngFor="let user of unStudents">
                                 <app-list-users [user]="user"></app-list-users>
                             </ng-container>
@@ -77,11 +78,11 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Faculty
+                                <i class="bi bi-person-lock"></i>&nbsp; {{acFaculty.length}} &nbsp;&nbsp;&nbsp; Faculty
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent>
-                            <p *ngIf="!acFaculty">No Users</p>
+                            <p *ngIf="!acFaculty.length">No Users</p>
                             <ng-container *ngFor="let user of acFaculty">
                                 <app-list-users [user]="user"></app-list-users>
                             </ng-container>
@@ -93,11 +94,12 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                             <mat-panel-title>
+                                <i class="bi bi-person-lock"></i>&nbsp; {{acStudents.length}} &nbsp;&nbsp;&nbsp;
                                 Students
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent>
-                            <p *ngIf="!acStudents">No Users</p>
+                            <p *ngIf="!acStudents.length">No Users</p>
                             <ng-container *ngFor="let user of acStudents">
                                 <app-list-users [user]="user"></app-list-users>
                             </ng-container>

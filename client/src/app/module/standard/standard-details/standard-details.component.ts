@@ -22,10 +22,10 @@ export class StandardDetailsComponent implements OnInit {
   schoolId: string = this.userService.getSchoolId();
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
-  public unFaculty!: User[];
-  public unStudents!: User[];
-  public acFaculty!: User[];
-  public acStudents!: User[];
+  public unFaculty: User[] = [];
+  public unStudents: User[] = [];
+  public acFaculty: User[] = [];
+  public acStudents: User[] = [];
 
   constructor(
     private url: ActivatedRoute,
@@ -59,7 +59,7 @@ export class StandardDetailsComponent implements OnInit {
   goToSubject() {
     this.router.navigate([AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject, this.standardId!)])
   }
-  
+
   goToTimeTable() {
     this.router.navigate([AppRoute.TimeTable])
   }

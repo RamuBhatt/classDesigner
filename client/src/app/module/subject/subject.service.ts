@@ -4,7 +4,7 @@ import { UserService } from '../../service/user.service';
 import { Faculty } from '../../interface/faculty';
 import { environment } from '../../../environments/environment.development';
 import { AppRoute } from '../../class/app-route';
-import { Subject } from './subject';
+import { Subject } from '../../interface/subject';
 
 @Injectable({
   providedIn: 'root'

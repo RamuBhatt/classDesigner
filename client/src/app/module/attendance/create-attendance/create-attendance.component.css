@@ -16,3 +16,7 @@
 .box.f-100{
     min-height: 10rem;
 }
+
+.standard,.subject{
+  width: 16rem;
+}

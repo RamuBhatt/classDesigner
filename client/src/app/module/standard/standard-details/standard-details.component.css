@@ -36,3 +36,8 @@
 .card:active {
   scale: 95%;
 }
+
+.bi{
+  scale: 1.2;
+  transform-origin: bottom ;
+}

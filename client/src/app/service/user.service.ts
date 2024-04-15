@@ -31,7 +31,7 @@ export class UserService {
   getRole(): number {
     let role = this.jwtDecode.decodeToken(this.getToken()!.toString()).user.RoleId;
     return Number(role);
-    // return Users.Student
+    // return Users.Faculty
   }
 
   getId(): string {
@@ -48,13 +48,13 @@ export class UserService {
 
   getStandardId(): string {
     if (this.getRole() != Users.Admin)
-      this.jwtDecode.decodeToken(this.getToken()!.toString()).user.StandardId;
-    return '';
+      return this.jwtDecode.decodeToken(this.getToken()!.toString()).user.StandardId;
+    return "";
   }
 
   getSubjectId(): string {
     if (this.getRole() == Users.Faculty)
-      this.jwtDecode.decodeToken(this.getToken()!.toString()).user.SubjectId;
+      return this.jwtDecode.decodeToken(this.getToken()!.toString()).user.SubjectId;
     return '';
   }
 

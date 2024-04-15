@@ -2,18 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { AppRoute } from '../../class/app-route';
-import { Observable } from 'rxjs';
 import { UserService } from '../../service/user.service';
-import { AttendanceOutDto } from '../../interface/Attendance';
-
-type AttendaceDto = {
-  Id: string;
-  Standard: string;
-  Subject: string;
-  Faculty: string;
-  Present: string[];
-  Absent: string[];
-}
+import { AttendanceOutDto } from '../../interface/attendance';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +24,7 @@ export class AttendanceService {
     return this.http.get(environment.api + AppRoute.Attendance + this.user.getSchoolId);
   }
 
-  getStudents(SubjectId: string) {
-    return this.http.get(environment.api + AppRoute.getRoute(AppRoute.Attendance, this.user.getSchoolId().toString()));
+  getStudents(standardId: string) {
+    return this.http.get(environment.api + AppRoute.getRoute(AppRoute.Attendance, this.user.getSchoolId(), standardId));
   }
 }

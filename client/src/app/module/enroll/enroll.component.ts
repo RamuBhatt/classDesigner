@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Users } from '../../enums/users';
 import { GenerateService } from '../../service/generate.service';
 
@@ -9,6 +9,7 @@ import { GenerateService } from '../../service/generate.service';
 })
 export class EnrollComponent {
   Users = Users
+  @Output() refresh = new EventEmitter<boolean>();
   @Input() schoolId!: string;
   @Input() standardId!: string | null;
 
@@ -23,7 +24,7 @@ export class EnrollComponent {
 
     if (user == Users.Student)
       this.generateService.enrollStudents(data).subscribe({
-        next: (data) => { console.log(data) },
+        next: (data) => { this.refresh.emit(true); },
         error: (e) => { console.log(e) }
       })
 

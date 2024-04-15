@@ -10,28 +10,17 @@ import { AttendanceService } from './attendance.service';
 })
 export class AttendanceComponent implements OnInit {
 
-  constructor(private userService: UserService, private attendanceService: AttendanceService) { }
+  standardId!: string;
+  Students: any = [];
 
-  Students: any = [
-    // {
-    //   status: false,
-    //   roll: 78454,
-    //   name: 'kush gangwal'
-    // },
-    // {
-    //   status: true,
-    //   roll: 40394,
-    //   name: 'monkey D. luffy'
-    // },
-    // {
-    //   status: false,
-    //   roll: 98546,
-    //   name: 'yash suthar'
-    // }
-  ]
+  constructor(
+    private userService: UserService,
+    private attendanceService: AttendanceService
+  ) { }
 
   ngOnInit(): void {
     this.initialization();
+    if (this.userService.getRole() == Users.Faculty) this.standardId = this.userService.getStandardId();
   }
 
   initialization() {
@@ -42,7 +31,7 @@ export class AttendanceComponent implements OnInit {
   }
 
   getStudents() {
-    this.attendanceService.getStudents(this.userService.getId()).subscribe({
+    this.attendanceService.getStudents(this.standardId).subscribe({
       next: (data: any) => {
         this.Students = data.Model;
         this.Students = this.Students.map((s: any) => ({ Rollnumber: s.Rollnumber, Name: s.Firstname + s.Lastname, status: false }))

@@ -4,7 +4,7 @@ import { UserService } from '../../service/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatAccordion } from '@angular/material/expansion';
 import { SubjectService } from './subject.service';
-import { Subject } from './subject';
+import { Subject } from '../../interface/subject';
 import { AdminService } from '../../service/admin.service';
 
 @Component({
