@@ -6,7 +6,7 @@
             <mat-select name="standard">
                 <mat-option [disabled]="true">Select Class</mat-option>
                 <ng-container *ngFor="let class of Standards">
-                    <mat-option [value]="class.id">{{class.name}}<sup>th</sup>Standard</mat-option>
+                    <mat-option [value]="class.Id">{{class.Name}}<sup>th</sup>Standard</mat-option>
                 </ng-container>
             </mat-select>
         </div>

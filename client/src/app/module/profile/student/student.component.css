@@ -1,22 +1,41 @@
-.edit{
-    /* display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1rem; */
-    display: flex;
+.edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  /* display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 2rem;
-    margin-bottom: 1rem;
+    gap: 1rem; */
+  padding: 2rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.edit > *{
-    flex: 1 1 30%;
+.primery-btn {
+  justify-self: start;
 }
 
-.primery-btn{
-    justify-self: start;
+.box-title {
+  align-self: flex-end;
 }
 
-.box-title{
-    align-self: flex-end;
+.page-body {
+  padding-top: 1rem;
+}
+
+.m-t-1 {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.primery-btn {
+  justify-self: flex-end;
+}
+
+.address {
+  grid-area: 3/1/4/4;
 }

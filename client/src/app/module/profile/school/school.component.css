@@ -1,0 +1,35 @@
+.title{
+    font-weight: 600;
+}
+
+.m-t-1{
+    margin-top: 1rem;
+}
+
+.f-70{
+    flex-basis: 70%;
+}
+
+/* .box{
+    flex-grow: 1;
+} */
+
+.box-title{
+    align-self: flex-end;
+}
+
+.edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  /* display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; */
+  padding: 2rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.newline{
+    grid-column: span 3;
+}

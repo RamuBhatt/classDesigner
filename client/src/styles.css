@@ -102,6 +102,9 @@ li {
 .f-100 {
   flex-basis: 100%;
 }
+.f-70{
+    flex-basis: 70%;
+}
 .f-50 {
   flex-basis: 50%;
 }

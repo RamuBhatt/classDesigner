@@ -1,1 +1,120 @@
-<p>school works!</p>
+<section class="page">
+    <div class="page-header">
+        <h4 class="page-title">Your Profile</h4>
+    </div>
+    <div class="page-body">
+        <ng-container *ngIf="!isEditing">
+            <p class="box-title f-70 f-full">School Information</p>
+            <button class="primery-btn" (click)="edit()"><i class="bi bi-pencil-square"></i></button>
+            <p class=" box title">
+                Vidhyanagri Higher Secondary School
+            </p>
+            <p class=" box">
+                <i class="bi bi-envelope-at "></i> vidhyanagri#edu.com
+            </p>
+            <p class=" box">
+                <i class="bi bi-telephone "></i> +91 02772020910
+            </p>
+            <p class=" box">
+                <i class="bi bi-geo" style="display: inline-block;"></i> &nbsp;
+                Vidhyanagari Campus
+                Motipura Bypass Road,
+                On the bank of River Hathmati,
+                Himmatnagar - 383001.
+            </p>
+            <!-- INDENT -->
+            <p class="box-title m-t-1 f-100">Admin's Information</p>
+            <p class="box">
+                Gangwal Kushagra Atulkumar
+            </p>
+            <p class="box">
+                <i class="bi bi-person"></i> STU588840
+            </p>
+            <p class="box">
+                Male
+            </p>
+            <p class="box">
+                <i class="bi bi-envelope-at "></i> &nbsp; kushagragangwal$gmail.com
+            </p>
+            <p class="box">
+                <i class="bi bi-telephone "></i> 9426819715
+            </p>
+            <p class="box">
+                <i class="bi bi-geo"></i> &nbsp; 16, Anand Sagar Tenement, Sahakri jin road, Himmatnagar,
+                Sabarkantha, 383001
+            </p>
+        </ng-container>
+
+        <ng-container *ngIf="isEditing">
+            <h4 class="box-title">Edit Information</h4>
+            <div class="f-full"></div>
+            <button class="primery-btn">
+                {{!isLoading ? 'Save': ''}}
+                <mat-spinner *ngIf="isLoading"></mat-spinner>
+            </button>
+            <form id="school-profile-form" class="box f-100 edit" name="create-school" [formGroup]="school.form">
+                <mat-form-field appearance="outline">
+                    <mat-label>School Name</mat-label>
+                    <input matInput formControlName="Name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="Phone">
+                </mat-form-field>
+
+
+                <mat-form-field class="newline" appearance="outline">
+                    <mat-label>School Address</mat-label>
+                    <input matInput formControlName="Address">
+                </mat-form-field>
+
+                <!-- Admin  -->
+                <div class="newline box-title">Admin Information</div>
+                
+                <mat-form-field  appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="FirstName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="LastName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="AdminEmail">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="AdminPhone">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input matInput formControlName="AdminGender">
+                </mat-form-field>
+
+                <!-- <mat-form-field>
+                                                <input matInput [matDatepicker]="to" formControlName="DOB">
+                                                <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+                                                <mat-datepicker #to></mat-datepicker>
+                                            </mat-form-field> -->
+
+                <mat-form-field class="newline" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="Address">
+                </mat-form-field>
+
+            </form>
+        </ng-container>
+
+    </div>
+</section>

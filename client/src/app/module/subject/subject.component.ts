@@ -6,6 +6,8 @@ import { MatAccordion } from '@angular/material/expansion';
 import { SubjectService } from './subject.service';
 import { Subject } from '../../interface/subject';
 import { AdminService } from '../../service/admin.service';
+import { StandardService } from '../standard/standard.service';
+import { IStandard } from '../standard/standard';
 
 @Component({
   selector: 'app-subject',
@@ -20,11 +22,7 @@ export class SubjectComponent {
   faculty: any;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
-  Standards = [
-    { id: '123', name: '7' },
-    { id: '343', name: '8' },
-    { id: '323', name: '6' }
-  ]
+  Standards!: IStandard[];
   Subjects = [
     { id: '123', Name: 'Hindi', faculty: { id: '234', name: 'anupam mittal' } },
     { id: '343', Name: 'Gujarati', faculty: { id: '234', name: 'radhika aapte' } },
@@ -35,6 +33,7 @@ export class SubjectComponent {
     private url: ActivatedRoute,
     private userService: UserService,
     private subjectService: SubjectService,
+    private standardService: StandardService,
     private adminService: AdminService,
   ) {
     this.stdId = url.snapshot.paramMap.get('id');
@@ -56,7 +55,7 @@ export class SubjectComponent {
   }
 
   getStandards() {
-    this.adminService.getStandard().subscribe({
+    this.standardService.get().subscribe({
       next: (data: any) => { this.Standards = data.Model },
       error: (err) => { console.error(err.message) }
     })

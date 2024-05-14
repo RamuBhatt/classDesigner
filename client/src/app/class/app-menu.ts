@@ -15,17 +15,6 @@ export const App = [
         isActive: false,
     },
     {
-        menu: AppRoute.TimeTable,
-        url: AppRoute.getRoute(AppRoute.TimeTable),
-        isActive: false,
-        roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
-        children: [{
-            menu: AppRoute.Add,
-            url: AppRoute.getRoute(AppRoute.TimeTable, AppRoute.Add),
-            roles: [Users.Admin, Users.Faculty]
-        }]
-    },
-    {
         menu: AppRoute.Attendance,
         url: AppRoute.getRoute(AppRoute.Attendance),
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
@@ -37,15 +26,26 @@ export const App = [
         }]
     },
     {
+        menu: AppRoute.Subject,
+        url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject, '12'),
+        roles: [Users.Admin, Users.Parents, Users.Student],
+        isActive: false,
+    },
+    {
+        menu: AppRoute.TimeTable,
+        url: AppRoute.getRoute(AppRoute.TimeTable),
+        isActive: false,
+        roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
+        children: [{
+            menu: AppRoute.Add,
+            url: AppRoute.getRoute(AppRoute.TimeTable, AppRoute.Add),
+            roles: [Users.Admin, Users.Faculty]
+        }]
+    },
+    {
         menu: AppRoute.Profile,
         url: AppRoute.getRoute(AppRoute.Profile),
         roles: [Users.Admin, Users.Faculty, Users.Parents, Users.Student],
         isActive: false,
     },
-    {
-        menu: AppRoute.Subject,
-        url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject, '12'),
-        roles: [Users.Parents, Users.Student],
-        isActive: false,
-    }
 ]

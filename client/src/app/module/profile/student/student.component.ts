@@ -33,7 +33,7 @@ export class StudentComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getStudent();
-    this.edit();
+    // this.edit();
     this.checkRole();
   }
 
@@ -72,7 +72,7 @@ export class StudentComponent implements OnInit {
 
   save() {
     this.profile.saveStudent(this.student.form.getRawValue()).subscribe({
-      next: (data) => console.log(data),
+      next: (data) => { console.log(data), this.isEditing = false },
       error: (e) => console.log(e.message)
     })
     this.isEditing = false;

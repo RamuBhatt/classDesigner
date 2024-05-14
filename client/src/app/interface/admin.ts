@@ -1,5 +1,14 @@
-import { User } from "./user";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 
-export interface Admin extends User {
-    
+export class Admin {
+    Id!: number;
+    FirstName!: string;
+    LastName!: string;
+    Email?: string;
+    Phone!: string;
+    DOB!: Date;
+    Gender!: boolean;
+    Address!: boolean;
+    SchoolId!: string;
+    public form!: FormGroup;
 }

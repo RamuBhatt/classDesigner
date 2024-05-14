@@ -1,5 +1,4 @@
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { BaseEntities } from "../../../interface/user";
 
 export class Student {
     Id!: number;
