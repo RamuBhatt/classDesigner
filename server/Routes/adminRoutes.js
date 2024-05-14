@@ -4,5 +4,6 @@ const adminRouter = express.Router();
 const createStudents = require("../Controllers/adminControllers");
 
 adminRouter.post("/admin/student/add", createStudents);
+adminRouter.post("/admin/faculty/add", createFaculty);
 
 module.exports = adminRouter
