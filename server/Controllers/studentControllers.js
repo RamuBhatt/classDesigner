@@ -113,13 +113,10 @@ const updateStudent = (req, res) => {
 		Gender,
 	} = req.body;
 	const IsActive = 1;
-	const user = [FirstName, LastName, Address, Email, Phone, Gender, IsActive];
-	const student = [Division, Medium, RollNumber, StandardId];
+	const sqlUpdateStudent = `UPDATE student SET RollNumber = ?, Division = ?, Medium = ?, StandardId = ? WHERE UsersId = '${[Id]}'`;
+	const sqlUpdateUser = `UPDATE users SET IsActive = ?, FirstName = ?, LastName = ?, Gender = ?, Email = ?, Phone = ?, Address = ? WHERE Id = '${[Id]}'`;
 
-	const sqlUpdateStudent = "UPDATE student SET ? WHERE UsersId = ?";
-	const sqlUpdateUser = "UPDATE users SET ? WHERE Id = ?";
-
-	connection.query(sqlUpdateUser, [...user, Id], (err, result) => {
+	connection.query(sqlUpdateUser, [IsActive,FirstName,LastName,Gender,Email,Phone,Address], (err, result) => {
 		if (err) {
 			Result.IsSuccess = false;
 			Result.Message = "Error on getting data";
@@ -128,7 +125,7 @@ const updateStudent = (req, res) => {
 			console.log(err);
 			res.send(Result);
 		}
-		connection.query(sqlUpdateStudent, [...student, Id], (err, result) => {
+		connection.query(sqlUpdateStudent, [RollNumber,Division,Medium,StandardId], (err, result) => {
 			if (err) {
 				Result.IsSuccess = false;
 				Result.Message = "Error on getting data";

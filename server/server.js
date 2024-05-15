@@ -11,12 +11,14 @@ const adminRouter = require("./Routes/adminRoutes");
 const standardRouter = require("./Routes/standardRoutes");
 const usersRouter = require("./Routes/userRouters");
 const studentRouter = require("./Routes/studentRoutes");
+const subjectRouter = require("./Routes/subjectRoutes");
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use("/api",
+    subjectRouter,
     signupRouter,
     usersRouter,
     adminRouter,
@@ -39,6 +41,6 @@ app.use("/api",
 // app.use("/api", require("./Routes/timeTableRoutes"));
 // app.use("/api", require("./Routes/userRouters"));
 
-app.listen(3306, () => {
+app.listen(3000, () => {
 	console.log("Running on port 3306");
 });
