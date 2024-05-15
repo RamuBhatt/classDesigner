@@ -7,7 +7,7 @@ const {
 	getSubject,
 } = require("../Controllers/subjectController");
 
-subjectRouter.post("/subject/:id", createSubject);
+subjectRouter.post("/subject", createSubject);
 subjectRouter.get("/subject/all/:id", getAllSubjects);
 subjectRouter.get("/subject/:id", getSubject);
 
