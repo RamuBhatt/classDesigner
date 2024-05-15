@@ -1,30 +1,26 @@
 const { connection, Result } = require("./connectionController");
 
 const createSubject = (req, res) => {
-	const { Id, Name, SchoolId, FacultyId, StandardId } = req.body;
-	const sqlInsert = "INSERT INTO subject VALUES (?,?,?,?)";
-	connection.query(
-		sqlInsert,
-		[FacultyId, Id, Name, SchoolId, StandardId],
-		(err, resonse) => {
-			if (err) {
-				console.log(err);
-				Result.IsSuccess = false;
-				Result.Message = "Error on inserting data";
-				Result.Model = [];
-				Result.Status = 404;
-				res.send(Result);
-				return;
-			}
-			console.log("Success");
-			Result.IsSuccess = true;
-			Result.Message = "data is Inserted successfully";
-			Result.Model = req.body;
-			Result.Status = 200;
-			return res.send(Result);
-		}
-	);
-};
+    const { Id, SchoolId, Name, Division } = req.body;
+    const sqlInsert = "INSERT INTO subject VALUES (?,?,?,?)";
+    connection.query(sqlInsert, [Id, SchoolId, Name, Division], (err, resonse) => {
+        if(err) {
+            console.log(err);
+            Result.IsSuccess = false;
+            Result.Message = "Error on inserting data";
+            Result.Model = [];
+            Result.Status = 404;
+            res.send(Result);
+            return;
+        }
+        console.log("Success");
+        Result.IsSuccess = true;
+        Result.Message = "data is Inserted successfully";
+        Result.Model = req.body;
+        Result.Status = 200;
+        return res.send(Result);
+    });
+}
 
 const getAllSubjects = (req, res) => {
 	StandardId = req.params.id;
