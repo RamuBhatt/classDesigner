@@ -4,5 +4,7 @@ export interface Subject {
     Id: string;
     StandardId: string;
     Name: string;
-    Faculty: Faculty;
+    SchoolId: string;
+    FacultyId: string;
+    faculty: any;
 }

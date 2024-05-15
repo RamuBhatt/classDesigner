@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../service/user.service';
 import { AttendanceService } from '../attendance.service';
-import { AttendanceOutDto, calcAttendance } from '../../../interface/attendance';
+import { AttendanceOutDto, calcAttendance } from '../../../interface/Attendance';
 import { User } from '../../../interface/user';
 import { Users } from '../../../enums/users';
 import { Guid } from 'guid-typescript';
@@ -43,7 +43,6 @@ export class CreateAttendanceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudents();
-    this.getSubjects();
     this.getStandards();
   }
 
@@ -62,8 +61,8 @@ export class CreateAttendanceComponent implements OnInit {
     })
   }
 
-  getSubjects() {
-    this.subjectService.get().subscribe({
+  getSubjects(std: string) {
+    this.subjectService.getAll(std).subscribe({
       next: (data: any) => {
         if (!data.IsSuccess) return;
         this.Subjects = data.Model;
@@ -75,7 +74,8 @@ export class CreateAttendanceComponent implements OnInit {
   getStandards() {
     this.standardService.get().subscribe({
       next: (data: any) => {
-        this.isLoading = false; this.Standards = data.Model; console.log(this.Standards);
+        this.isLoading = false; this.Standards = data.Model;
+        this.getSubjects(this.Standards[0].Id!)
       },
       error: (e) => console.log(e)
     })

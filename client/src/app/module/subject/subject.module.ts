@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoute } from '../../class/app-route';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -19,9 +21,12 @@ import { AppRoute } from '../../class/app-route';
   imports: [
     CommonModule,
     MatDividerModule,
+    FormsModule,
     MatExpansionModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     MatSelectModule
   ]
 })

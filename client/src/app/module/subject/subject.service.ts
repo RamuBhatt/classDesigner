@@ -23,11 +23,15 @@ export class SubjectService {
     return this.http.get<Subject>(environment.api + AppRoute.Subject);
   }
 
-  create(data: Subject, id: string) {
-    return this.http.post<Subject>(environment.api + AppRoute.getRoute(AppRoute.Subject, id), data);
+  create(data: Subject) {
+    return this.http.post<Subject>(environment.api + AppRoute.Subject, data);
   }
 
   update(data: Subject) {
     return this.http.put<Subject>(environment.api + AppRoute.Subject, data);
+  }
+
+  getAll(standardId: string) {
+    return this.http.get<Subject>(environment.api + AppRoute.getRoute(AppRoute.Subject, AppRoute.All, standardId));
   }
 }

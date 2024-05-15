@@ -2,7 +2,8 @@
     <ul>
         <li *ngFor="let app of App">
             <div *ngIf="app.roles.includes(userRole)">
-                <button class="cta" [class.active]="app.isActive" (click)="navigateTo(app)">
+                <button class="cta" [routerLink]="[app.url]" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}" (click)="navigateTo(app)">
                     <span>{{app.menu}}</span>
                     <svg width="15px" height="10px" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
@@ -11,7 +12,8 @@
                 </button>
                 <ul *ngIf="app.isActive">
                     <li *ngFor="let subApp of (app.children)">
-                        <button class="cta subapp" *ngIf="subApp.roles.includes(userRole)"
+                        <button class="cta subapp" [routerLink]="[subApp.url]" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}" *ngIf="subApp.roles.includes(userRole)"
                             (click)="navigateTo(subApp,'Yes')">
                             <span>{{subApp.menu}}</span>
                             <svg width="15px" height="10px" viewBox="0 0 13 10">
