@@ -2,7 +2,7 @@ const { connection, Result } = require("./connectionController");
 
 const createSubject = (req, res) => {
     const { Id, SchoolId, Name, Division } = req.body;
-    const sqlInsert = "INSERT INTO subjects VALUES (?,?,?,?)";
+    const sqlInsert = "INSERT INTO subject VALUES (?,?,?,?)";
     connection.query(sqlInsert, [Id, SchoolId, Name, Division], (err, resonse) => {
         if(err) {
             console.log(err);
@@ -24,7 +24,7 @@ const createSubject = (req, res) => {
 
 const getAllSubjects = (req, res) => {
     StandardId = req.params.id;
-    const sqlGetAll = "SELECT * FROM subjects WHERE StandardId = ?";
+    const sqlGetAll = "SELECT * FROM subject WHERE StandardId = ?";
     connection.query(sqlGetAll, [SchoolId], (err, response) => {
         if(err) {
             console.log(err);
@@ -45,7 +45,7 @@ const getAllSubjects = (req, res) => {
 
 const getSubject = (req, res) => {
     StandardId = req.params.id;
-    const sqlget = "SELECT * FROM subjects WHERE Id = ?";
+    const sqlget = "SELECT * FROM subject WHERE Id = ?";
     connection.query(sqlget, [StandardId], (err, response) => {
         if(err) {
             Result.IsSuccess = false;
