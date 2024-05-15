@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { AppRoute } from '../../class/app-route';
 import { UserService } from '../../service/user.service';
-import { AttendanceOutDto } from '../../interface/attendance';
+import { AttendanceOutDto } from '../../interface/Attendance';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AttendanceService {
   }
 
   get() {
-    return this.http.get(environment.api + AppRoute.Attendance + this.user.getSchoolId);
+    return this.http.get(environment.api + AppRoute.Attendance + this.user.getSchoolId());
   }
 
   getStudents(standardId: string) {

@@ -3,40 +3,70 @@
         <div class="box-title f-30">All Subjects</div>
         <div class="f-30"></div>
         <div class="f-30">
-            <mat-select name="standard">
+            <mat-select name="standard" [(ngModel)]="currentClass" (ngModelChange)="getSubjects(currentClass)">
                 <mat-option [disabled]="true">Select Class</mat-option>
                 <ng-container *ngFor="let class of Standards">
                     <mat-option [value]="class.Id">{{class.Name}}<sup>th</sup>Standard</mat-option>
                 </ng-container>
             </mat-select>
         </div>
-        <div class="box f-100">
-            <mat-accordion>
-                <ng-container *ngFor="let subject of Subjects">
-                    <mat-expansion-panel [disabled]="canAccess">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <i class="bi bi-journals"></i> &nbsp; {{subject.Name}}
-                            </mat-panel-title>
-                            <mat-panel-description>
-                                <i class="bi bi-person-gear"></i> &nbsp; {{subject.faculty.name | titlecase}}
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="edit-container">
-                            <mat-form-field class="select" appearance="outline">
-                                <mat-label>Select Teacher</mat-label>
-                                <mat-select [(value)]="subject.faculty.id">
-                                    <mat-option *ngFor="let f of faculty" [value]="faculty.Id">{{f.Name}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <button class="primery-btn" (click)="save(subject)">
-                                Save
-                            </button>
-                        </div>
-                    </mat-expansion-panel>
-                    <!-- <mat-divider></mat-divider> -->
-                </ng-container>
-            </mat-accordion>
+        <div class="box f-100 subject-wrapper">
+            <ng-container *ngIf="isLoading; else show">
+                <mat-spinner></mat-spinner>
+            </ng-container>
+            <ng-template #show>
+                <mat-accordion>
+                    <ng-container *ngFor="let subject of Subjects">
+                        <mat-expansion-panel [disabled]="canAccess">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <i class="bi bi-journals"></i> &nbsp; {{subject.Name}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    <i class="bi bi-person-gear"></i> &nbsp; {{subject.faculty.name | titlecase}}
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="edit-container">
+                                <mat-form-field class="select" appearance="outline">
+                                    <mat-label>Select Teacher</mat-label>
+                                    <mat-select [(value)]="subject.faculty.id">
+                                        <mat-option *ngFor="let f of faculty"
+                                            [value]="faculty.Id">{{f.Name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <button class="primery-btn" (click)="save(subject)">
+                                    Save
+                                </button>
+                            </div>
+                        </mat-expansion-panel>
+                        <!-- <mat-divider></mat-divider> -->
+                    </ng-container>
+                </mat-accordion>
+            </ng-template>
+        </div>
+        <p class="box-title mt-1">Add Subject</p>
+        <div class="f-100">
+            <div class="box">
+                <form [formGroup]="newSubject">
+                    <div class="edit-container">
+                        <mat-form-field appearance="outline" class="mt-1">
+                            <mat-label>Enter subject name</mat-label>
+                            <input matInput formControlName="Name" type="text">
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Select Teacher</mat-label>
+                            <mat-select formControlName="FacultyId">
+                                <mat-option *ngFor="let f of faculty" [value]="faculty.Id">{{f.Name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <button class="primery-btn" (click)="addSubject()">
+                            Add
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>

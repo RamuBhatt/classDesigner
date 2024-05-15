@@ -26,3 +26,7 @@ i.action {
 .mat-expansion-panel-header[aria-disabled=true] {
     color: black
 }
+
+.subject-wrapper{
+  min-height: 10rem;
+}

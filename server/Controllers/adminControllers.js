@@ -61,7 +61,7 @@ const createStudents = (req, res) => {
 	res.send({ IsSucess: true });
 };
 
-const createFaculty = () => {
+const createFaculty = (req, res) => {
 	const { Count, SchoolId, StandardId } = req.body;
 	const Users = [];
 	const Faculty = [];

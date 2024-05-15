@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { App } from '../../../class/app-menu';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../service/user.service';
 import { Users } from '../../../enums/users';
 import { HeaderComponent } from '../header/header.component';
@@ -9,7 +9,7 @@ import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
@@ -25,7 +25,7 @@ export class SidebarComponent {
   }
 
   navigateTo(app: any, isSubMenu?: 'Yes') {
-    this.router.navigate([app.url]);
+    // this.router.navigate([app.url]);
     if (isSubMenu) return;
     App.map((a: any) => a.isActive = (a == app) ? true : false)
   }

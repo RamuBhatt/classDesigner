@@ -8,6 +8,8 @@ import { Subject } from '../../interface/subject';
 import { AdminService } from '../../service/admin.service';
 import { StandardService } from '../standard/standard.service';
 import { IStandard } from '../standard/standard';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-subject',
@@ -19,22 +21,27 @@ export class SubjectComponent {
   role: Users;
   stdId: string | null;
   canAccess!: boolean;
-  faculty: any;
+  faculty: any; isLoading = true;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   Standards!: IStandard[];
-  Subjects = [
-    { id: '123', Name: 'Hindi', faculty: { id: '234', name: 'anupam mittal' } },
-    { id: '343', Name: 'Gujarati', faculty: { id: '234', name: 'radhika aapte' } },
-    { id: '323', Name: 'Engilsh', faculty: { id: '234', name: 'miss Inida' } }
-  ]
+  Subjects!: Subject[];
+  currentClass = '';
+
+  newSubject: FormGroup = new FormGroup({
+    Id: new FormControl(),
+    Name: new FormControl(),
+    FacultyId: new FormControl(),
+    SchoolId: new FormControl(this.userService.getSchoolId()),
+    StandardId: new FormControl()
+  })
 
   constructor(
     private url: ActivatedRoute,
     private userService: UserService,
     private subjectService: SubjectService,
     private standardService: StandardService,
-    private adminService: AdminService,
+    private adminService: AdminService
   ) {
     this.stdId = url.snapshot.paramMap.get('id');
     this.role = userService.getRole();
@@ -43,20 +50,22 @@ export class SubjectComponent {
   ngOnInit(): void {
     this.checkRole();
     this.getFaculty();
-    this.getSubjects();
     this.getStandards();
   }
 
-  getSubjects() {
-    this.subjectService.get().subscribe({
-      next: (data: any) => { this.Subjects = data.Model },
+  getSubjects(standardId: string) {
+    this.subjectService.getAll(standardId).subscribe({
+      next: (data: any) => { this.Subjects = data.Model; this.isLoading = false },
       error: (err) => { console.error(err.message) }
     })
   }
 
   getStandards() {
     this.standardService.get().subscribe({
-      next: (data: any) => { this.Standards = data.Model },
+      next: (data: any) => {
+        this.Standards = data.Model; this.getSubjects(this.Standards[0].Id);
+        this.currentClass = this.Standards.at(0)!.Id;
+      },
       error: (err) => { console.error(err.message) }
     })
   }
@@ -73,10 +82,18 @@ export class SubjectComponent {
   }
 
   save(subject: any) {
-    this.subjectService.create(subject, this.stdId!).subscribe({
+    this.subjectService.create(subject).subscribe({
       next: (data) => { },
       error: (err) => { console.error(err.message) }
     })
   }
 
+  addSubject() {
+    this.newSubject.get('Id')?.setValue(Guid.create().toString());
+    this.newSubject.get('StandardId')?.setValue(this.currentClass);
+    this.subjectService.create(this.newSubject.value).subscribe({
+      next: (data: any) => { console.log("success") },
+      error: (err) => { console.error(err.message) }
+    })
+  }
 }
