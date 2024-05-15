@@ -1,7 +1,7 @@
 const express = require("express");
 const adminRouter = express.Router();
 
-const createStudents = require("../Controllers/adminControllers");
+const { createStudents, createFaculty} = require("../Controllers/adminControllers");
 
 adminRouter.post("/admin/student/add", createStudents);
 adminRouter.post("/admin/faculty/add", createFaculty);

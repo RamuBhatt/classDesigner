@@ -18,7 +18,7 @@ const createSubject = (req, res) => {
         Result.Message = "data is Inserted successfully";
         Result.Model = req.body;
         Result.Status = 200;
-        res.send(Result);
+        return res.send(Result);
     });
 }
 
