@@ -27,7 +27,7 @@ export const App = [
     },
     {
         menu: AppRoute.Subject,
-        url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject, '12'),
+        url: AppRoute.getRoute(AppRoute.Standard, AppRoute.Subject,AppRoute.All),
         roles: [Users.Admin, Users.Parents, Users.Student],
         isActive: false,
     },

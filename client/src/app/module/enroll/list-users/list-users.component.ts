@@ -15,10 +15,10 @@ export class ListUsersComponent {
   }
 
   openProfile() {
-
+    
     const route = AppRoute.getRoute(
       AppRoute.Profile,
-      AppRoute.Student,
+      AppRoute.Faculty,
       this.user.Id
     )
     this.route.navigate([route]);

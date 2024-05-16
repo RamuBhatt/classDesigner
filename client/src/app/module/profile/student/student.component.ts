@@ -32,8 +32,7 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getStudent();
-    // this.edit();
+    this.getStudent();
     this.checkRole();
   }
 

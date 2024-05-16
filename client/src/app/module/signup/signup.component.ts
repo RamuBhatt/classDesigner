@@ -27,7 +27,8 @@ import { Route } from '@angular/router';
 export class SignupComponent implements OnInit{
 
   userInfo!:SignUp;
-  hide:boolean = true;
+  hide: boolean = true;
+  success!: boolean;
 
   constructor(private formbuilder: FormBuilder, private signupService: SignupService) {}
   
@@ -42,7 +43,7 @@ export class SignupComponent implements OnInit{
 
     if(this.userInfo.form.valid){
       this.signupService.create(this.userInfo.form.value).subscribe({
-        next: () => console.log("Success"),
+        next: () => this.success = true,
         error: (e) => console.log(e)
       });
     }

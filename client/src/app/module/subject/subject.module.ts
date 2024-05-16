@@ -7,11 +7,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { RouterModule, Routes } from '@angular/router';
-import { AppRoute } from '../../class/app-route';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [
+  { path: 'all', component: SubjectComponent },
+];
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   imports: [
     CommonModule,
+    RouterModule.forChild(routes),
     MatDividerModule,
     FormsModule,
     MatExpansionModule,

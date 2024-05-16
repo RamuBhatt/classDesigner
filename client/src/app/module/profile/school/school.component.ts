@@ -23,8 +23,8 @@ export class SchoolComponent {
   }
 
   ngOnInit(): void {
-    // this.getStudent();
-    // this.edit();
+    this.getSchool();
+    // this.edit(); 
   }
 
   getSchool() {
@@ -37,7 +37,6 @@ export class SchoolComponent {
   }
 
   edit() {
-    this.isEditing = true;
     this.isEditing = true;
     this.school = new School(this.formBuilder);
     this.school.createForm();

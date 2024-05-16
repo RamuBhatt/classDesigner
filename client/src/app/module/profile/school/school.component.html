@@ -25,30 +25,29 @@
             <!-- INDENT -->
             <p class="box-title m-t-1 f-100">Admin's Information</p>
             <p class="box">
-                Gangwal Kushagra Atulkumar
+                Bhatt Ramni G.
             </p>
             <p class="box">
-                <i class="bi bi-person"></i> STU588840
+                <i class="bi bi-person"></i> Admin
             </p>
             <p class="box">
-                Male
+                female
             </p>
             <p class="box">
-                <i class="bi bi-envelope-at "></i> &nbsp; kushagragangwal$gmail.com
+                <i class="bi bi-envelope-at "></i> &nbsp; ramni//clickup.com
             </p>
             <p class="box">
-                <i class="bi bi-telephone "></i> 9426819715
+                <i class="bi bi-telephone "></i> 8274000012
             </p>
             <p class="box">
-                <i class="bi bi-geo"></i> &nbsp; 16, Anand Sagar Tenement, Sahakri jin road, Himmatnagar,
-                Sabarkantha, 383001
+                <i class="bi bi-geo"></i> &nbsp; Motipura Bypass Road, On the bank of River Hathmati, Himmatnagar - 383001.
             </p>
         </ng-container>
 
         <ng-container *ngIf="isEditing">
             <h4 class="box-title">Edit Information</h4>
             <div class="f-full"></div>
-            <button class="primery-btn">
+            <button class="primery-btn" (click)="save()">
                 {{!isLoading ? 'Save': ''}}
                 <mat-spinner *ngIf="isLoading"></mat-spinner>
             </button>
