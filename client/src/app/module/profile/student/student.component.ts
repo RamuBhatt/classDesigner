@@ -33,6 +33,8 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.student = new Student(this.formBuilder);
+    this.student.createForm();
     this.getStudent();
     this.checkRole();
   }
@@ -52,12 +54,11 @@ export class StudentComponent implements OnInit {
 
   edit() {
     this.isEditing = true;
-    this.student = new Student(this.formBuilder);
-    this.student.createForm();
     this.getStudent();
   }
 
   getStudent() {
+    console.log('getting');
     this.profile.getStudent(this.usersId).subscribe({
       next: (data: any) => {
         this.student.form.patchValue(data.Model);

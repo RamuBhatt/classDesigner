@@ -9,6 +9,7 @@ export class Faculty {
     Phone!: string;
     DOB!: Date;
     Gender!: boolean;
+    UserName?: string;
     Address!: boolean;
     Division!: string;
     Medium!: string;
@@ -31,6 +32,7 @@ export class Faculty {
             Phone: new FormControl(''),
             Gender: new FormControl(''),
             DOB: new FormControl(''),
+            UserName: new FormControl(''),
             Address: new FormControl(''),
             Division: new FormControl(''),
             Medium: new FormControl(''),

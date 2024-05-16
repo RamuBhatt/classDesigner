@@ -10,12 +10,13 @@
             <div class="box subject">
                 <mat-select placeholder="Select Subject" name="subject" [disabled]="!isAdmin" [(value)]="currSubject">
                     <ng-container *ngFor="let sub of Subjects">
-                        <mat-option [value]="sub.Id">{{sub.Name}}<sup>th</sup>Standard</mat-option>
+                        <mat-option [value]="sub.Id">{{sub.Name}}</mat-option>
                     </ng-container>
                 </mat-select>
             </div>
             <div class="box standard">
-                <mat-select placeholder="Select Standard" name="standard" [disabled]="!isAdmin" [(value)]="currStandard">
+                <mat-select placeholder="Select Standard" name="standard" [disabled]="!isAdmin"
+                    [(value)]="currStandard">
                     <ng-container *ngFor="let std of Standards">
                         <mat-option [value]="std.Id">{{std.Name}}<sup>th</sup> Standard</mat-option>
                     </ng-container>

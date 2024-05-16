@@ -7,6 +7,7 @@ export class Student {
     Email?: string;
     Phone!: string;
     DOB!: Date;
+    UserName?: string;
     Gender!: boolean;
     Address!: boolean;
     Division!: string;
@@ -30,6 +31,7 @@ export class Student {
             Phone: new FormControl(''),
             Gender: new FormControl(''),
             DOB: new FormControl(''),
+            UserName: new FormControl(''),
             Address: new FormControl(''),
             Division: new FormControl(''),
             Medium: new FormControl(''),

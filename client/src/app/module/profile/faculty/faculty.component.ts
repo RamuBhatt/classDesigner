@@ -14,6 +14,7 @@ export class FacultyComponent {
   isEditing!: boolean;
   isLoading!: boolean;
   faculty!: Faculty;
+  facultyDetail!: Faculty;
   usersId: string = this.userService.getId();
 
   constructor(
@@ -28,10 +29,14 @@ export class FacultyComponent {
     }
   }
 
-  edit() {
-    this.isEditing = true;
+  ngOnInit(): void {
     this.faculty = new Faculty(this.formBuilder);
     this.faculty.createForm();
+    this.getFaculty();
+  }
+
+  edit() {
+    this.isEditing = true;
     this.getFaculty();
   }
 
@@ -39,6 +44,8 @@ export class FacultyComponent {
     this.profile.getFaculty(this.usersId).subscribe({
       next: (data: any) => {
         this.faculty.form.patchValue(data.Model);
+        this.facultyDetail = data.Model;
+        console.log(data.Model);
       },
       error: (e) => console.log(e.message)
     })
