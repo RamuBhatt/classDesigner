@@ -17,6 +17,7 @@ export class StudentComponent implements OnInit {
   canAccess: boolean = this.userService.getRole() == (Users.Admin || Users.Faculty);
   student!: Student;
   usersId: string = this.userService.getId();
+  studentDetails!: Student;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -60,6 +61,8 @@ export class StudentComponent implements OnInit {
     this.profile.getStudent(this.usersId).subscribe({
       next: (data: any) => {
         this.student.form.patchValue(data.Model);
+        this.studentDetails = data.Model;
+        console.log(this.studentDetails);
       },
       error: (e) => console.log(e.message)
     })

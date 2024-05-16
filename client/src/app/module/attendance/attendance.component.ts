@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { Users } from '../../enums/users';
 import { AttendanceService } from './attendance.service';
+import { User } from '../../interface/user';
 
 @Component({
   selector: 'app-attendance',
@@ -31,12 +32,14 @@ export class AttendanceComponent implements OnInit {
   }
 
   getStudents() {
-    this.attendanceService.getStudents(this.standardId).subscribe({
+    this.userService.getUsers().subscribe({
       next: (data: any) => {
-        this.Students = data.Model;
-        this.Students = this.Students.map((s: any) => ({ Rollnumber: s.Rollnumber, Name: s.Firstname + s.Lastname, status: false }))
+        if (!data.IsSuccess) return;
+        const users: User[] = data.Model;
+        let activeStudents = users.filter(u => u.IsActive && u.RoleId == Users.Student.toString());
+        this.Students = activeStudents.map((s: any) => ({ Id: s.Id, UserName: s.UserName, Name: s.FirstName + " " + s.LastName, Status: false }))
       },
-      error: (e) => console.log(e)
+      error: (e) => console.error(e)
     })
   }
 }

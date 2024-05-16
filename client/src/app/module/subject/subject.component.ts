@@ -25,7 +25,12 @@ export class SubjectComponent {
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   Standards!: IStandard[];
-  Subjects!: Subject[];
+  // Subjects!: Subject[];
+  Subjects = [
+    { id: '123', Name: 'Hindi', faculty: { id: '234', name: 'Samina mam' } },
+    { id: '343', Name: 'Gujarati', faculty: { id: '234', name: 'Roma mam' } },
+    { id: '323', Name: 'Engilsh', faculty: { id: '234', name: 'Priyanka mam' } }
+  ]
   currentClass = '';
 
   newSubject: FormGroup = new FormGroup({
@@ -55,7 +60,13 @@ export class SubjectComponent {
 
   getSubjects(standardId: string) {
     this.subjectService.getAll(standardId).subscribe({
-      next: (data: any) => { this.Subjects = data.Model; this.isLoading = false },
+      next: (data: any) => {
+        // this.Subjects = data.Model;
+        // console.log(this.faculty);
+        // this.Subjects.forEach(s => ({ ...s, faculty: this.faculty.find((f: any) => f.Id == s.FacultyId)?.FirstName }))
+        // console.log(this.Subjects);
+        this.isLoading = false
+      },
       error: (err) => { console.error(err.message) }
     })
   }
@@ -75,7 +86,7 @@ export class SubjectComponent {
   }
 
   getFaculty() {
-    this.adminService.getFaculty().subscribe({
+    this.adminService.getStudent().subscribe({
       next: (data: any) => { this.faculty = data.Model },
       error: (err) => { console.error(err.message) }
     })

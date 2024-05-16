@@ -9,7 +9,7 @@
             <p class="box-title m-t-1 f-70 f-full">Personal Information</p>
             <button class="primery-btn" (click)="edit()"><i class="bi bi-pencil-square"></i></button>
             <p class=" box ">
-                Gangwal Kushagra Atulkumar
+                
             </p>
             <p class=" box f-full">
                 <i class="bi bi-person"></i> STU588840
@@ -60,62 +60,63 @@
                 {{!isLoading ? 'Save': ''}}
                 <mat-spinner *ngIf="isLoading"></mat-spinner>
             </button>
-            <form id="student-profile-form" class="box f-100 edit" name="create-student" (ngSubmit)="save()" [formGroup]="student.form">
-                    <mat-form-field class="subject" appearance="outline">
-                        <mat-label>First name</mat-label>
-                        <input matInput formControlName="FirstName">
-                    </mat-form-field>
+            <form id="student-profile-form" class="box f-100 edit" name="create-student" (ngSubmit)="save()"
+                [formGroup]="student.form">
+                <mat-form-field class="subject" appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="FirstName">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Last name</mat-label>
-                        <input matInput formControlName="LastName">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="LastName">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input matInput formControlName="Email">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Phone</mat-label>
-                        <input matInput formControlName="Phone">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="Phone">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Gender</mat-label>
-                        <input matInput formControlName="Gender">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input matInput formControlName="Gender">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Date of Birth</mat-label>
-                        <input matInput formControlName="Gender">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput formControlName="Gender">
+                </mat-form-field>
 
-                    <!-- <mat-form-field>
+                <!-- <mat-form-field>
                             <input matInput [matDatepicker]="to" formControlName="DOB">
                             <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
                             <mat-datepicker #to></mat-datepicker>
                         </mat-form-field> -->
 
-                    <mat-form-field class="address" appearance="outline">
-                        <mat-label>Address</mat-label>
-                        <input matInput formControlName="Address">
-                    </mat-form-field>
+                <mat-form-field class="address" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="Address">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Roll Number</mat-label>
-                        <input matInput formControlName="RollNumber">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Roll Number</mat-label>
+                    <input matInput formControlName="RollNumber">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Division</mat-label>
-                        <input matInput formControlName="Division">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Division</mat-label>
+                    <input matInput formControlName="Division">
+                </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Standard</mat-label>
-                        <input matInput formControlName="StandardId">
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Standard</mat-label>
+                    <input matInput formControlName="StandardId">
+                </mat-form-field>
             </form>
         </ng-container>
 

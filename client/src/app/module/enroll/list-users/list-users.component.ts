@@ -15,12 +15,19 @@ export class ListUsersComponent {
   }
 
   openProfile() {
-    
-    const route = AppRoute.getRoute(
-      AppRoute.Profile,
-      AppRoute.Faculty,
-      this.user.Id
-    )
+    var route;
+    if (this.user.RoleId == 1)
+      route = AppRoute.getRoute(
+        AppRoute.Profile,
+        AppRoute.Student,
+        this.user.Id
+      )
+    if (this.user.RoleId == 2)
+      route = AppRoute.getRoute(
+        AppRoute.Profile,
+        AppRoute.Faculty,
+        this.user.Id
+      )
     this.route.navigate([route]);
   }
 }
